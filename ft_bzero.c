@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Gridis <gridis72@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 18:08:50 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/03 01:00:41 by Gridis           ###   ########.fr       */
+/*   Created: 2024/04/03 00:58:55 by Gridis            #+#    #+#             */
+/*   Updated: 2024/04/03 01:01:01 by Gridis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+#include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < n)
 	{
-		*(char *)(s + i) = c;
+		*(char *)(s + i) = 0;
 		i++;
 	}
-	return (s);
 }
