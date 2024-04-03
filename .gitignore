@@ -2,3 +2,4 @@ test
 test.c
 *.o
 libft.so
+libft.a
