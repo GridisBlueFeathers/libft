@@ -1,51 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 19:22:54 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/03 20:00:08 by svereten         ###   ########.fr       */
+/*   Created: 2024/04/04 17:17:48 by svereten          #+#    #+#             */
+/*   Updated: 2024/04/04 17:33:56 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-int	ft_isspace(char c)
+int	ft_isinset(char const *set, char c)
 {
-	char	*arr;
-	int		i;
+	size_t	i;
 
-	arr = "\t\v\f\r\n ";
 	i = 0;
-	while (i < 6)
-	{
-		if (c == arr[i])
-			return (1);
+	while (i < ft_strlen(set) && c != set[i])
 		i++;
-	}
+	if (!set[i])
+		return (1);
 	return (0);
 }
 
-int	ft_atoi(const char *nptr)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	i;
-	int	mod;
-	int	res;
+	size_t	i;
+	size_t	start;
+	size_t	end;
+	char	*res;
 
+	if (!s1 || !set)
+		return (0);
 	i = 0;
-	mod = 1;
-	res = 0;
-	while (ft_isspace(nptr[i]) || (nptr[i] == '+' && !ft_isspace(nptr[i + 1])))
+	while (s1[i] && !ft_isinset(set, s1[i]))
 		i++;
-	while (nptr[i])
+	start = i;
+	while (s1[i])
 	{
-		if (nptr[i] == '-')
-			mod = -1;
-		else if (nptr[i] >= '0' && nptr[i] <= '9')
-			res = res * 10 + mod * (nptr[i] - '0');
-		else
-			break ;
+		if (ft_isinset(set, s1[i]))
+			end = i;
 		i++;
 	}
+	res = ft_substr(s1, start, end - start + 1);
+	if (!res)
+		return (0);
 	return (res);
 }
