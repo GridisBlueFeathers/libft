@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:50:29 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/04 20:03:48 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/04 22:57:09 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -14,7 +14,7 @@
 int	ft_get_int_len(int n)
 {
 	int	dec;
-	int n_cpy;
+	int	n_cpy;
 
 	n_cpy = n;
 	dec = 1;
@@ -41,7 +41,13 @@ char	*ft_append_char(char *res, char c)
 
 void	ft_itoa_worker(char *res, int n, int mod)
 {
-
+	if ((mod < 0 && n > -10) || (mod > 0 && n < 10))
+	{
+		ft_append_char(res, (n * mod) + '0');
+		return ;
+	}
+	ft_itoa_worker(res, n / 10, mod);
+	ft_itoa_worker(res, n % 10, mod);
 }
 
 char	*ft_itoa(int n)
@@ -60,6 +66,6 @@ char	*ft_itoa(int n)
 		ft_append_char(res, '-');
 		mod = -1;
 	}
-	ft_itoa_worker(res, n);
-	return (0);
+	ft_itoa_worker(res, n, mod);
+	return (res);
 }

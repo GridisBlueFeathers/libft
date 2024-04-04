@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:37:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/04 18:38:08 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/04 22:50:40 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -92,7 +92,6 @@ char	**ft_split(char const *s, char c)
 {
 	char	**res;
 	int		size;
-	int		i;
 
 	if (!s)
 		return (0);
@@ -100,7 +99,6 @@ char	**ft_split(char const *s, char c)
 	res = (char **)calloc(size + 1, sizeof(char *));
 	if (!res)
 		return (0);
-	i = 0;
 	if (!ft_iterate_split(s, c, res, size))
 		return (0);
 	return (res);
