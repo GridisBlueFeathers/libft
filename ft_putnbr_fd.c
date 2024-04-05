@@ -6,16 +6,17 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:17:58 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/05 13:22:59 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/05 13:46:30 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
+
 void	ft_putnbr_fd_worker(int n, int mod, int fd)
 {
 	if ((mod == -1 && n > -10) || (mod == 1 && n < 10))
 	{
 		ft_putchar_fd((mod * n) + '0', fd);
-		return;
+		return ;
 	}
 	ft_putnbr_fd_worker(n / 10, mod, fd);
 	ft_putnbr_fd_worker(n % 10, mod, fd);
