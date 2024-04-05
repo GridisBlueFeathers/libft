@@ -6,12 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:37:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/04 22:50:40 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:52:28 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_count_words(char const *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
 	int	i;
 	int	res;
@@ -29,7 +29,7 @@ int	ft_count_words(char const *s, char c)
 	return (res);
 }
 
-void	ft_free_split(char **res, int words_amount)
+static void	ft_free_split(char **res, int words_amount)
 {
 	int	i;
 
@@ -42,7 +42,7 @@ void	ft_free_split(char **res, int words_amount)
 	free(res);
 }
 
-int	ft_append_to_res(char **res, char const *s, char c, int start)
+static int	ft_append_to_res(char **res, char const *s, char c, int start)
 {
 	int		j;
 	int		i;
@@ -64,7 +64,7 @@ int	ft_append_to_res(char **res, char const *s, char c, int start)
 	return (1);
 }
 
-int	ft_iterate_split(char const *s, char c, char **res, int size)
+static int	ft_iterate_split(char const *s, char c, char **res, int size)
 {
 	int	i;
 	int	check;

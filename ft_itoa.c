@@ -6,12 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:50:29 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/04 22:57:09 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:47:46 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_get_int_len(int n)
+static int	ft_get_int_len(int n)
 {
 	int	dec;
 	int	n_cpy;
@@ -28,7 +28,7 @@ int	ft_get_int_len(int n)
 	return (dec);
 }
 
-char	*ft_append_char(char *res, char c)
+static char	*ft_append_char(char *res, char c)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ char	*ft_append_char(char *res, char c)
 	return (res);
 }
 
-void	ft_itoa_worker(char *res, int n, int mod)
+static void	ft_itoa_worker(char *res, int n, int mod)
 {
 	if ((mod < 0 && n > -10) || (mod > 0 && n < 10))
 	{

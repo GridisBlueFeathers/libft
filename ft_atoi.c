@@ -6,11 +6,11 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 19:22:54 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/03 20:00:08 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:46:55 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(char c)
+static int	ft_isspace(char c)
 {
 	char	*arr;
 	int		i;

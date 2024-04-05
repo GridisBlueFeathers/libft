@@ -39,6 +39,8 @@ SRCS = ft_isalnum.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c \
 
+BONUS_SRCS = ft_lstnew.c \
+
 OBJS = ${SRCS:.c=.o}
 
 INCLUDES = -I libft
@@ -48,7 +50,6 @@ LIBC = ar rcs
 RM = rm -f
 
 all: ${NAME}
-
 
 ${NAME}: ${OBJS}
 	${LIBC} ${NAME} ${OBJS}

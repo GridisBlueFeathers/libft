@@ -6,12 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:17:48 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/04 17:33:56 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:53:40 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_isinset(char const *set, char c)
+static int	ft_isinset(char const *set, char c)
 {
 	size_t	i;
 

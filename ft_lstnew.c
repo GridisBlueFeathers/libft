@@ -1,42 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 17:02:46 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/05 14:52:46 by svereten         ###   ########.fr       */
+/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
+/*   Updated: 2024/04/05 13:58:43 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static void	ft_appendstr(char *res, char const *s)
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
-	int	j;
+	t_list	*res;
 
-	i = ft_strlen(res);
-	j = 0;
-	while (s[j])
-	{
-		res[i + j] = s[j];
-		j++;
-	}
-}
-
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	char	*res;
-	size_t	len;
-
-	if (!s1 || !s2)
-		return (0);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	res = (char *)ft_calloc(len + 1, sizeof(char));
+	res = (t_list *)ft_calloc(1, sizeof(t_list));
 	if (!res)
 		return (0);
-	ft_appendstr(res, s1);
-	ft_appendstr(res, s2);
+	if (!content)
+	{
+		res->content = 0;
+		return (res);
+	}
+	res->content = (void *)ft_calloc(ft_strlen((char *)content), sizeof(char));
+	if (!res->content)
+	{
+		free(res);
+		return (0);
+	}
+	ft_memcpy(res->content, content, ft_strlen((char *)content));
 	return (res);
 }
