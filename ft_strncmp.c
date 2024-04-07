@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:55:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/03 14:01:36 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/06 12:09:46 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,7 +28,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		}
 		i++;
 	}
-	if (i == n)
+	if (i > 0 && i == n)
 		res = ((unsigned char *)s1)[i - 1] - ((unsigned char *)s2)[i - 1];
 	return (res);
 }

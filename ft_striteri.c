@@ -6,12 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 12:27:29 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/05 12:31:31 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/06 11:54:04 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_striteri(char *s, char (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	size_t	i;
 
