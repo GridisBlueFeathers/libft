@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
+#    Updated: 2024/04/09 14:07:49 by svereten         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 CC = cc
@@ -39,15 +51,15 @@ SRCS = ft_isalnum.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c \
 
-BONUS_SRCS = ft_lstnew_bonus.c \
-	   		 ft_lstadd_front_bonus.c \
-	   		 ft_lstadd_back_bonus.c \
-	   		 ft_lstsize_bonus.c \
-	   		 ft_lstlast_bonus.c \
-	   		 ft_lstdelone_bonus.c \
-	   		 ft_lstclear_bonus.c \
-	   		 ft_lstiter_bonus.c \
-	   		 ft_lstmap_bonus.c \
+BONUS_SRCS = ft_lstnew.c \
+	   		 ft_lstadd_front.c \
+	   		 ft_lstadd_back.c \
+	   		 ft_lstsize.c \
+	   		 ft_lstlast.c \
+	   		 ft_lstdelone.c \
+	   		 ft_lstclear.c \
+	   		 ft_lstiter.c \
+	   		 ft_lstmap.c \
 
 
 OBJS = ${SRCS:.c=.o}
@@ -71,7 +83,7 @@ ${NAME}: ${OBJS}
 bonus: ${BONUS_OBJS}
 	${AR} ${NAME} ${BONUS_OBJS}
 
-#%_bonus.o: %_bonus.c
+#%.o: %_bonus.c
 #	${CC} ${CFLAGS} $< ${INCLUDES} -o $@ 
 #	${AR} ${NAME} $@
 

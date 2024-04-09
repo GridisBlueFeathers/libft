@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 12:39:30 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/03 13:06:14 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/09 12:32:24 by Gridis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -27,7 +27,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		}
 		i++;
 	}
-	if (i == n)
+	if (i == n && i && n)
 		res = ((unsigned char *)s1)[i - 1] - ((unsigned char *)s2)[i - 1];
 	return (res);
 }
