@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/04/09 14:13:30 by svereten         ###   ########.fr        #
+#    Updated: 2024/04/09 14:29:02 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,18 +49,9 @@ SRCS = ft_isalnum.c \
 	   ft_putchar_fd.c \
 	   ft_putstr_fd.c \
 	   ft_putendl_fd.c \
-	   ft_putnbr_fd.c \
+	   ft_putnbr_fd.c
 
-BONUS_SRCS = ft_lstnew.c \
-	   		 ft_lstadd_front.c \
-	   		 ft_lstadd_back.c \
-	   		 ft_lstsize.c \
-	   		 ft_lstlast.c \
-	   		 ft_lstdelone.c \
-	   		 ft_lstclear.c \
-	   		 ft_lstiter.c \
-	   		 ft_lstmap.c \
-
+BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstadd_back.c ft_lstsize.c ft_lstlast.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJS = ${SRCS:.c=.o}
 
@@ -68,7 +59,7 @@ BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
 INCLUDES = -I.
 
-AR = ar rcs
+AR = ar -rcs
 
 RM = rm -f
 
@@ -77,15 +68,11 @@ all: ${NAME}
 ${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
 
+bonus: ${BONUS_OBJS} ${OBJS}
+	${AR} ${NAME} $^
+
 %.o: %.c
 	${CC} ${CFLAGS} $< ${INCLUDES} -o $@ 
-
-bonus: ${BONUS_OBJS}
-	${AR} ${NAME} ${BONUS_OBJS}
-
-#%.o: %_bonus.c
-#	${CC} ${CFLAGS} $< ${INCLUDES} -o $@ 
-#	${AR} ${NAME} $@
 
 clean:
 	${RM} ${OBJS} ${BONUS_OBJS}
