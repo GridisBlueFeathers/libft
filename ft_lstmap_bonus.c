@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 18:38:19 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/09 13:46:08 by svereten         ###   ########.fr       */
+/*   Created: 2024/04/05 19:34:23 by svereten          #+#    #+#             */
+/*   Updated: 2024/04/09 15:18:03 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*cur;
+	t_list	*res;
+	t_list	*next;
+	void	*content;
 
-	if (!lst || !f)
-		return ;
-	cur = lst;
-	while (cur)
+	if (!lst || !f || !del)
+		return (0);
+	res = 0;
+	while (lst)
 	{
-		f(cur->content);
-		cur = cur->next;
+		content = f(lst->content);
+		if (content)
+		{
+			next = ft_lstnew(content);
+			if (next)
+			{
+				ft_lstadd_back(&res, next);
+				lst = lst->next;
+				continue ;
+			}
+			del(content);
+		}
+		ft_lstclear(&res, del);
+		return (0);
 	}
+	return (res);
 }

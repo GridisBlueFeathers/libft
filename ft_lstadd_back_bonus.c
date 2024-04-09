@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 19:34:23 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/07 21:59:18 by svereten         ###   ########.fr       */
+/*   Created: 2024/04/05 17:50:35 by svereten          #+#    #+#             */
+/*   Updated: 2024/04/09 15:17:03 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*res;
-	t_list	*next;
-	void	*content;
+	t_list	*cur;
 
-	if (!lst || !f || !del)
-		return (0);
-	res = 0;
-	while (lst)
+	if (!new || !lst)
+		return ;
+	if (!*lst)
 	{
-		content = f(lst->content);
-		next = ft_lstnew(content);
-		if (!next)
-		{
-			del(content);
-			ft_lstclear(&res, del);
-			return (0);
-		}
-		ft_lstadd_back(&res, next);
-		lst = lst->next;
+		*lst = new;
+		return ;
 	}
-	return (res);
+	cur = *lst;
+	while (cur->next)
+		cur = cur->next;
+	cur->next = new;
 }

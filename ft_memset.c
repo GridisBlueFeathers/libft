@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Gridis <gridis72@gmail.com>                +#+  +:+       +#+        */
+/*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 18:08:50 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/03 01:00:41 by Gridis           ###   ########.fr       */
+/*   Created: 2024/04/09 15:23:15 by svereten          #+#    #+#             */
+/*   Updated: 2024/04/09 15:24:47 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -18,7 +18,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		*(char *)(s + i) = c;
+		((char *)s)[i] = c;
 		i++;
 	}
 	return (s);

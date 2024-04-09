@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 11:56:08 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/04 13:58:40 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:53:50 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*res;
 	size_t	i;
 
+	if (nmemb * size > 2147483647)
+		return (0);
 	res = malloc(nmemb * size);
 	if (!res)
 		return (0);
