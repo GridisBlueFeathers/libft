@@ -54,7 +54,7 @@ OBJS = ${SRCS:.c=.o}
 
 BONUS_OBJS = ${BONUS_SRCS:.c=.o}
 
-INCLUDES = -I libft
+INCLUDES = -I.
 
 AR = ar rcs
 

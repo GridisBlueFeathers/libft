@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 19:22:54 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/07 22:29:09 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/09 09:26:08 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -36,13 +36,16 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	mod = 1;
 	res = 0;
-	while (ft_isspace(nptr[i]) || (nptr[i] == '+' && ft_isdigit(nptr[i + 1])))
-		i++;
-	while (nptr[i])
+	while (ft_isspace(nptr[i])
+		|| ((nptr[i] == '+' || nptr[i] == '-') && ft_isdigit(nptr[i + 1])))
 	{
 		if (nptr[i] == '-' && ft_isdigit(nptr[i + 1]))
 			mod = -1;
-		else if (ft_isdigit(nptr[i]))
+		i++;
+	}
+	while (nptr[i])
+	{
+		if (ft_isdigit(nptr[i]))
 			res = res * 10 + mod * (nptr[i] - '0');
 		else
 			break ;
