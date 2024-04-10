@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:41:41 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/09 13:41:45 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:19:29 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -18,7 +18,7 @@ void	ft_bzero(void *s, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		*(char *)(s + i) = 0;
+		((char *)s)[i] = 0;
 		i++;
 	}
 }

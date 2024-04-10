@@ -6,24 +6,15 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 19:22:54 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/09 09:26:08 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/10 16:17:30 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 static int	ft_isspace(char c)
 {
-	char	*arr;
-	int		i;
-
-	arr = "\t\v\f\r\n ";
-	i = 0;
-	while (i < 6)
-	{
-		if (c == arr[i])
-			return (1);
-		i++;
-	}
+	if ((c >= '\t' && c <= '\r') || c == ' ')
+		return (1);
 	return (0);
 }
 
@@ -36,19 +27,17 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	mod = 1;
 	res = 0;
-	while (ft_isspace(nptr[i])
-		|| ((nptr[i] == '+' || nptr[i] == '-') && ft_isdigit(nptr[i + 1])))
+	while (ft_isspace(nptr[i]))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
 	{
-		if (nptr[i] == '-' && ft_isdigit(nptr[i + 1]))
+		if (nptr[i] == '-')
 			mod = -1;
 		i++;
 	}
-	while (nptr[i])
+	while (ft_isdigit(nptr[i]))
 	{
-		if (ft_isdigit(nptr[i]))
-			res = res * 10 + mod * (nptr[i] - '0');
-		else
-			break ;
+		res = res * 10 + mod * (nptr[i] - '0');
 		i++;
 	}
 	return (res);
