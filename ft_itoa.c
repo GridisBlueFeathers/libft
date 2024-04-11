@@ -6,29 +6,27 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:50:29 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/05 14:47:46 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/11 19:16:45 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 static int	ft_get_int_len(int n)
 {
-	int	dec;
-	int	n_cpy;
+	int	res;
 
-	n_cpy = n;
-	dec = 1;
+	res = 1;
 	if (n < 0)
-		dec++;
-	while (n_cpy / 10)
+		res++;
+	while (n / 10)
 	{
-		dec++;
-		n_cpy /= 10;
+		res++;
+		n /= 10;
 	}
-	return (dec);
+	return (res);
 }
 
-static char	*ft_append_char(char *res, char c)
+static void	ft_append_char(char *res, char c)
 {
 	int	i;
 
@@ -36,12 +34,11 @@ static char	*ft_append_char(char *res, char c)
 	while (res[i])
 		i++;
 	res[i] = c;
-	return (res);
 }
 
 static void	ft_itoa_worker(char *res, int n, int mod)
 {
-	if ((mod < 0 && n > -10) || (mod > 0 && n < 10))
+	if ((mod == -1 && n > -10) || (mod == 1 && n < 10))
 	{
 		ft_append_char(res, (n * mod) + '0');
 		return ;
@@ -59,7 +56,7 @@ char	*ft_itoa(int n)
 	len = ft_get_int_len(n);
 	res = (char *)ft_calloc(len + 1, sizeof(char));
 	if (!res)
-		return (0);
+		return (NULL);
 	mod = 1;
 	if (n < 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 18:16:39 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/09 15:17:14 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/11 19:17:40 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -28,5 +28,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		free(cur);
 		cur = next;
 	}
-	*lst = 0;
+	*lst = NULL;
 }

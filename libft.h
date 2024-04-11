@@ -6,14 +6,13 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/10 18:39:49 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/11 19:05:08 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
