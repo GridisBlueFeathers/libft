@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 18:01:56 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/05 14:53:15 by svereten         ###   ########.fr       */
+/*   Updated: 2024/04/12 12:50:25 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {
