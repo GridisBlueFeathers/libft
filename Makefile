@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/04/10 16:29:03 by svereten         ###   ########.fr        #
+#    Updated: 2024/05/16 21:15:22 by Gridis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,58 +14,65 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_isalnum.c \
-	   ft_isalpha.c \
-	   ft_isascii.c \
-	   ft_isdigit.c \
-	   ft_isprint.c \
-	   ft_memset.c \
-	   ft_strlen.c \
-	   ft_bzero.c \
-	   ft_memcpy.c \
-	   ft_memmove.c \
-	   ft_memchr.c \
-	   ft_memcmp.c \
-	   ft_toupper.c \
-	   ft_tolower.c \
-	   ft_strchr.c \
-	   ft_strrchr.c \
-	   ft_strncmp.c \
-	   ft_strlcpy.c \
-	   ft_strlcat.c \
-	   ft_strnstr.c \
-	   ft_atoi.c \
-	   ft_calloc.c \
-	   ft_strdup.c \
-	   ft_substr.c \
-	   ft_strjoin.c \
-	   ft_strtrim.c \
-	   ft_split.c \
-	   ft_itoa.c \
-	   ft_strmapi.c \
-	   ft_striteri.c \
-	   ft_putchar_fd.c \
-	   ft_putstr_fd.c \
-	   ft_putendl_fd.c \
-	   ft_putnbr_fd.c
+SRCS_DIR = src
 
-BONUS_SRCS = ft_lstnew_bonus.c \
-			 ft_lstadd_front_bonus.c \
-			 ft_lstadd_back_bonus.c \
-			 ft_lstsize_bonus.c \
-			 ft_lstlast_bonus.c \
-			 ft_lstdelone_bonus.c \
-			 ft_lstclear_bonus.c \
-			 ft_lstiter_bonus.c \
-			 ft_lstmap_bonus.c
+OBJS_DIR = obj
 
-OBJS = ${SRCS:.c=.o}
+OBJS_DIRS = $(sort $(dir $(OBJS)))
 
-BONUS_OBJS = ${BONUS_SRCS:.c=.o}
+SRCS_PROJ = libft/ft_isalnum \
+			libft/ft_isalpha \
+			libft/ft_isascii \
+			libft/ft_isdigit \
+			libft/ft_isprint \
+			libft/ft_memset \
+			libft/ft_strlen \
+			libft/ft_bzero \
+			libft/ft_memcpy \
+			libft/ft_memmove \
+			libft/ft_memchr \
+			libft/ft_memcmp \
+			libft/ft_toupper \
+			libft/ft_tolower \
+			libft/ft_strchr \
+			libft/ft_strrchr \
+			libft/ft_strncmp \
+			libft/ft_strlcpy \
+			libft/ft_strlcat \
+			libft/ft_strnstr \
+			libft/ft_atoi \
+			libft/ft_calloc \
+			libft/ft_strdup \
+			libft/ft_substr \
+			libft/ft_strjoin \
+			libft/ft_strtrim \
+			libft/ft_split \
+			libft/ft_itoa \
+			libft/ft_strmapi \
+			libft/ft_striteri \
+			libft/ft_putchar_fd \
+			libft/ft_putstr_fd \
+			libft/ft_putendl_fd \
+			libft/ft_putnbr_fd \
+			libft/ft_lstnew \
+			libft/ft_lstadd_front \
+			libft/ft_lstadd_back \
+			libft/ft_lstsize \
+			libft/ft_lstlast \
+			libft/ft_lstdelone \
+			libft/ft_lstclear \
+			libft/ft_lstiter \
+			libft/ft_lstmap \
+			libft/ft_free_n_null \
+			get-next-line/get_next_line \
 
-INCLUDES = -I.
+SRCS = ${SRCS_PROJ:%=${SRCS_DIR}/%.c}
+
+OBJS = ${SRCS_PROJ:%=${OBJS_DIR}/%.o}
+
+INCLUDES = -I./include
 
 AR = ar -rcs
 
@@ -79,8 +86,11 @@ ${NAME}: ${OBJS}
 bonus: ${BONUS_OBJS} ${OBJS}
 	${AR} ${NAME} $^
 
-%.o: %.c
-	${CC} ${CFLAGS} $< ${INCLUDES} -o $@ 
+${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c | ${OBJS_DIRS}
+	${CC} ${CFLAGS} -c $< ${INCLUDES} -o $@ 
+
+${OBJS_DIRS}:
+	mkdir -p $@
 
 clean:
 	${RM} ${OBJS} ${BONUS_OBJS}
