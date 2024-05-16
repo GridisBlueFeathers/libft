@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/05/16 21:15:22 by Gridis           ###   ########.fr        #
+#    Updated: 2024/05/16 21:33:45 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,13 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_lstmap \
 			libft/ft_free_n_null \
 			get-next-line/get_next_line \
+			ft-printf/ft_print_char \
+			ft-printf/ft_print_string \
+			ft-printf/ft_print_int \
+			ft-printf/ft_print_uint \
+			ft-printf/ft_print_uhex \
+			ft-printf/ft_print_pointer_addr \
+			ft-printf/ft_printf \
 
 SRCS = ${SRCS_PROJ:%=${SRCS_DIR}/%.c}
 
