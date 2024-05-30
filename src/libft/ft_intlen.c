@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 19:22:54 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/17 15:44:22 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/17 15:33:23 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/17 15:35:48 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	ft_isspace(char c)
+size_t	ft_intlen(long long num)
 {
-	if ((c >= '\t' && c <= '\r') || c == ' ')
-		return (1);
-	return (0);
-}
+	size_t	res;
 
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	mod;
-	int	res;
-
-	i = 0;
-	mod = 1;
-	res = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	res = 1;
+	if (num < 0)
+		res++;
+	while (num / 10)
 	{
-		if (nptr[i] == '-')
-			mod = -1;
-		i++;
-	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + mod * (nptr[i] - '0');
-		i++;
+		res++;
+		num /= 10;
 	}
 	return (res);
 }

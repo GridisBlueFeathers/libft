@@ -1,44 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_validate_atoi.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 19:22:54 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/17 15:44:22 by svereten         ###   ########.fr       */
+/*   Created: 2024/05/29 17:07:31 by svereten          #+#    #+#             */
+/*   Updated: 2024/05/29 17:23:16 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	ft_isspace(char c)
+int	ft_validate_atoi(char *str, int	*num)
 {
-	if ((c >= '\t' && c <= '\r') || c == ' ')
-		return (1);
-	return (0);
-}
+	int	str_num;
 
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	mod;
-	int	res;
-
-	i = 0;
-	mod = 1;
-	res = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			mod = -1;
-		i++;
-	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + mod * (nptr[i] - '0');
-		i++;
-	}
-	return (res);
+	str_num = ft_atoi(str);
+	if (ft_strlen(str) != ft_intlen(str_num))
+		return (0);
+	if (str_num == 0 && str[0] != '0')
+		return (0);
+	*num = str_num;
+	return (1);
 }
