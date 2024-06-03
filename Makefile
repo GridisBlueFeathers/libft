@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/05/30 13:31:17 by svereten         ###   ########.fr        #
+#    Updated: 2024/06/03 20:55:40 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,9 +92,6 @@ all: ${NAME}
 ${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
 
-bonus: ${BONUS_OBJS} ${OBJS}
-	${AR} ${NAME} $^
-
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c | ${OBJS_DIRS}
 	${CC} ${CFLAGS} -c $< ${INCLUDES} -o $@ 
 
@@ -109,4 +106,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
