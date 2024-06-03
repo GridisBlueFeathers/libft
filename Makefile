@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/06/03 20:55:40 by svereten         ###   ########.fr        #
+#    Updated: 2024/06/03 22:36:26 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS_DIR = src
 
 OBJS_DIR = obj
 
-OBJS_DIRS = $(sort $(dir $(OBJS)))
+OBJS_DIRS = ${sort ${dir ${OBJS}}}
 
 SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_isalpha \
@@ -85,8 +85,6 @@ INCLUDES = -I./include
 
 AR = ar -rcs
 
-RM = rm -f
-
 all: ${NAME}
 
 ${NAME}: ${OBJS}
@@ -99,10 +97,10 @@ ${OBJS_DIRS}:
 	mkdir -p $@
 
 clean:
-	${RM} ${OBJS} ${BONUS_OBJS}
+	rm -rf ${OBJS_DIR}
 
 fclean: clean
-	${RM} ${NAME}
+	rm -rf ${NAME}
 
 re: fclean all
 
