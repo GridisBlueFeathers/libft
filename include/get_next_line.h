@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:31:16 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/16 13:50:51 by svereten         ###   ########.fr       */
+/*   Updated: 2024/06/10 18:49:00 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_BONUS_H
@@ -24,6 +24,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-char	*get_next_line(int fd);
+int	get_next_line(int fd, char **line);
 
 #endif

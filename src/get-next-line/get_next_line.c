@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:34:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/16 13:45:03 by svereten         ###   ########.fr       */
+/*   Updated: 2024/06/10 18:48:50 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -50,28 +50,29 @@ static char	*remove_output(char *fd_buf, char *aux_buf)
 	return (ft_free_n_null((void **)&fd_buf), res);
 }
 
-char	*get_next_line(int fd)
+int	get_next_line(int fd, char **line)
 {
 	static char	*fd_buf[MAX_FD];
 	char		*aux_buf;
 	int			bytes_read;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
+		return (0);
 	aux_buf = (char *)malloc(BUFFER_SIZE + 1);
 	if (!aux_buf)
-		return (ft_free_n_null((void **)&fd_buf[fd]), NULL);
+		return (ft_free_n_null((void **)&fd_buf[fd]), 0);
 	bytes_read = 1;
 	while (!ft_strchr(fd_buf[fd], '\n') && bytes_read)
 	{
 		bytes_read = read(fd, aux_buf, BUFFER_SIZE);
 		if (bytes_read == -1)
-			return (free(aux_buf), ft_free_n_null((void **)&fd_buf[fd]), NULL);
+			return (free(aux_buf), ft_free_n_null((void **)&fd_buf[fd]), 0);
 		aux_buf[bytes_read] = '\0';
 		fd_buf[fd] = ft_strjoin(fd_buf[fd], aux_buf);
 	}
 	free(aux_buf);
 	aux_buf = get_next_output(fd_buf[fd]);
 	fd_buf[fd] = remove_output(fd_buf[fd], aux_buf);
-	return (aux_buf);
+	*line = aux_buf;
+	return (1);
 }
