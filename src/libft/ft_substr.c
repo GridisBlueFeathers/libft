@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:26:32 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/04 17:00:19 by svereten         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:40:14 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -34,5 +34,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		res[i - start] = s[i];
 		i++;
 	}
-	return (res);
+	return (ft_free_n_null((void **)&s), res);
 }

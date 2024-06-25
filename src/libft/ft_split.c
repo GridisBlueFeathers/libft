@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:37:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/10 19:15:56 by svereten         ###   ########.fr       */
+/*   Updated: 2024/06/25 17:40:31 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -58,7 +58,7 @@ static int	ft_append_to_res(char **res, char const *s, char c, int start)
 	j = 0;
 	while (res[j])
 		j++;
-	res[j] = ft_substr(s, start, len);
+	res[j] = ft_substr(ft_strdup(s), start, len);
 	if (!res[j])
 		return (0);
 	return (1);
