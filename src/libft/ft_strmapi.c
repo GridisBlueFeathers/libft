@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 23:10:51 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/09 15:30:55 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:30:39 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:34:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/16 13:45:03 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:31:27 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "libft/get_next_line.h"
 
 static char	*get_next_output(char *fd_buf)
 {

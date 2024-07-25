@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:17:58 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/09 15:25:28 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:28:00 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 static void	ft_putnbr_fd_worker(int n, int mod, int fd)
 {

@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:50:29 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/11 19:16:45 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:16:32 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 static int	ft_get_int_len(int n)
 {

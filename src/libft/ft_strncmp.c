@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:55:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/06 12:09:46 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:30:46 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

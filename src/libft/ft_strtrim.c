@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:17:48 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/05 14:53:40 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:31:03 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 static int	ft_isinset(char const *set, char c)
 {

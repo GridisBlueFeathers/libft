@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 15:23:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/09 15:24:47 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:27:09 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+#include "libft/libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {

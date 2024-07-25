@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:02:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/03 15:31:30 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:30:19 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {

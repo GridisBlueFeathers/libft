@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:02:46 by svereten          #+#    #+#             */
-/*   Updated: 2024/05/16 13:36:08 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:28:40 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

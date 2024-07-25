@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 12:24:18 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/06 12:16:07 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:20:05 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

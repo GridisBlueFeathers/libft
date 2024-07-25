@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 22:50:48 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/24 17:21:43 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:31:34 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+#include "libft/ft_printf.h"
 
 int	ft_print_char(char c)
 {

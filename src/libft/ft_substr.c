@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 16:26:32 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/04 17:00:19 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:31:13 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

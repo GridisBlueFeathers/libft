@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:11:23 by svereten          #+#    #+#             */
-/*   Updated: 2024/04/05 13:12:56 by svereten         ###   ########.fr       */
+/*   Updated: 2024/07/26 00:28:06 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
+#include "libft/libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/05/16 21:33:45 by svereten         ###   ########.fr        #
+#    Updated: 2024/07/26 00:14:44 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS_DIR = src
 
 OBJS_DIR = obj
 
-OBJS_DIRS = $(sort $(dir $(OBJS)))
+#OBJS_DIRS = $(sort $(dir $(OBJS)))
+OBJS_DIRS = obj
 
 SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_isalpha \
