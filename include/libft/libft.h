@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/30 17:07:04 by svereten         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:28:02 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-void	ft_free_n_null(void **ptr);
+typedef enum e_type
+{
+	PTR,
+	STR_ARR,
+}	t_type;
+
+void	ft_free(t_type type, void *ptr);
 
 #endif

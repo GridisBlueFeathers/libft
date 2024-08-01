@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:34:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/26 00:31:27 by svereten         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:33:06 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/get_next_line.h"
@@ -41,13 +41,13 @@ static char	*remove_output(char *fd_buf, char *aux_buf)
 	if (!fd_buf)
 		return (NULL);
 	if (!aux_buf)
-		return (ft_free_n_null((void **)&fd_buf), NULL);
+		return (ft_free(PTR, &fd_buf), NULL);
 	nl_location = ft_strchr(fd_buf, '\n');
 	if (!nl_location || !nl_location[1])
-		return (ft_free_n_null((void **)&fd_buf), NULL);
+		return (ft_free(PTR, &fd_buf), NULL);
 	nnl_index = nl_location - fd_buf;
 	res = ft_substr(fd_buf, nnl_index + 1, ft_strlen(fd_buf) - nnl_index - 1);
-	return (ft_free_n_null((void **)&fd_buf), res);
+	return (ft_free(PTR, &fd_buf), res);
 }
 
 char	*get_next_line(int fd)
@@ -60,13 +60,13 @@ char	*get_next_line(int fd)
 		return (NULL);
 	aux_buf = (char *)malloc(BUFFER_SIZE + 1);
 	if (!aux_buf)
-		return (ft_free_n_null((void **)&fd_buf[fd]), NULL);
+		return (ft_free(PTR, &fd_buf[fd]), NULL);
 	bytes_read = 1;
 	while (!ft_strchr(fd_buf[fd], '\n') && bytes_read)
 	{
 		bytes_read = read(fd, aux_buf, BUFFER_SIZE);
 		if (bytes_read == -1)
-			return (free(aux_buf), ft_free_n_null((void **)&fd_buf[fd]), NULL);
+			return (free(aux_buf), ft_free(PTR, &fd_buf[fd]), NULL);
 		aux_buf[bytes_read] = '\0';
 		fd_buf[fd] = ft_strjoin(fd_buf[fd], aux_buf);
 	}
