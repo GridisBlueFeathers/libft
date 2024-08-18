@@ -6,11 +6,16 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 11:56:08 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/26 00:15:44 by svereten         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:09:37 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
 
+/**
+ * Mimics `calloc`
+ *
+ * protected against and overflows 0 in arguments
+ */
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*res;
@@ -18,7 +23,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	res_size;
 
 	res_size = nmemb * size;
-	if (res_size / size != nmemb)
+	if (!nmemb || !size || res_size / size != nmemb)
 		return (NULL);
 	res = malloc(res_size);
 	if (!res)
