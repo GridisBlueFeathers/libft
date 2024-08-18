@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/01 14:28:02 by svereten         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:06:28 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,6 @@ typedef enum e_type
 
 void	ft_free(t_type type, void *ptr);
 
+char	**ft_strarrdup(char **arr);
+size_t	ft_strarrlen(char **arr);
 #endif

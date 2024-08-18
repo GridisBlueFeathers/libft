@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrdup.c                                     :+:      :+:    :+:   */
+/*   ft_strarrlen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 17:20:19 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/18 15:06:58 by svereten         ###   ########.fr       */
+/*   Created: 2024/08/18 15:04:41 by svereten          #+#    #+#             */
+/*   Updated: 2024/08/18 15:05:26 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
 
 /**
- * Duplicates string array
- *
+ * Counts strings in string array
+ * 
  * Protected
  */
-char	**ft_strarrdup(char **arr)
+size_t	ft_strarrlen(char **arr)
 {
-	char	**res;
-	int		i;
+	size_t	res;
 
-	res = (char **)ft_calloc(ft_strarrlen(arr) + 1, sizeof(char *));
-	if (!arr || !res)
-		return (NULL);
-	i = 0;
-	while (arr[i])
+	if (!arr)
+		return (0);
+	res = 0;
+	while (arr[res])
 	{
-		res[i] = ft_strdup(arr[i]);
-		if (!res[i])
-		{
-			ft_free(STR_ARR, res);
-			return (NULL);
-		}
-		i++;
+		res++;
 	}
 	return (res);
 }
+
