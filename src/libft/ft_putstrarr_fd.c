@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrlen.c                                     :+:      :+:    :+:   */
+/*   ft_putstrarr_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/18 15:04:41 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/22 14:26:37 by svereten         ###   ########.fr       */
+/*   Created: 2024/08/22 14:23:56 by svereten          #+#    #+#             */
+/*   Updated: 2024/08/22 14:26:46 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
 
-/**
- * Counts strings in string array
- * 
- * Protected
- */
-size_t	ft_strarrlen(char **arr)
+void	ft_putstrarr_fd(char **arr, int fd)
 {
-	size_t	res;
+	int	i;
 
-	if (!arr)
-		return (0);
-	res = 0;
-	while (arr[res])
+	i = 0;
+	ft_putstr_fd("{", fd);
+	while (arr[i])
 	{
-		res++;
+		ft_putstr_fd(arr[i], fd);
+		i++;
 	}
-	return (res);
+	ft_putstr_fd("NULL}", fd);
 }
