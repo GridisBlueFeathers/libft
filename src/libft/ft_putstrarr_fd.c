@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:23:56 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/22 14:26:46 by svereten         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:31:20 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
@@ -19,7 +19,9 @@ void	ft_putstrarr_fd(char **arr, int fd)
 	ft_putstr_fd("{", fd);
 	while (arr[i])
 	{
+		ft_putstr_fd("\"", fd);
 		ft_putstr_fd(arr[i], fd);
+		ft_putstr_fd("\", ", fd);
 		i++;
 	}
 	ft_putstr_fd("NULL}", fd);
