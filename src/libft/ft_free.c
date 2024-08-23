@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:33:07 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/23 16:02:53 by svereten         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:13:13 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
@@ -35,6 +35,6 @@ void	ft_free(t_type type, void *ptr)
 	if (type == STR)
 		free(*(void **)ptr);
 	if (type == STR_ARR)
-		ft_free_str_arr((char **)ptr);
+		ft_free_str_arr(*(char ***)ptr);
 	ptr = NULL;
 }
