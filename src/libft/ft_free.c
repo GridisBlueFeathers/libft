@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:33:07 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/01 14:31:27 by svereten         ###   ########.fr       */
+/*   Updated: 2024/08/23 16:01:56 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
@@ -18,18 +18,20 @@ static void	ft_free_str_arr(char **arr)
 	i = 0;
 	while (arr[i])
 	{
-		free(arr[i]);
-		arr[i] = NULL;
+		ft_free(STR, &arr[i]);
 		i++;
 	}
 	free(arr);
 }
 
+/**
+ * Frees variable and sets it to NULL, variable should be passed by reference
+ */
 void	ft_free(t_type type, void *ptr)
 {
-	if (type == PTR)
-		free(ptr);
+	if (type == STR)
+		free(*(void **)ptr);
 	if (type == STR_ARR)
 		ft_free_str_arr(ptr);
-	*(void **)ptr = NULL;
+	ptr = NULL;
 }
