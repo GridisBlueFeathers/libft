@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 17:20:19 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/21 16:54:20 by svereten         ###   ########.fr       */
+/*   Updated: 2024/08/26 18:45:49 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
@@ -21,8 +21,10 @@ char	**ft_strarrdup(char **arr)
 	char	**res;
 	int		i;
 
+	if (!arr)
+		return (NULL);
 	res = (char **)ft_calloc(ft_strarrlen(arr) + 1, sizeof(char *));
-	if (!arr || !res)
+	if (!res)
 		return (free(res), NULL);
 	i = 0;
 	while (arr[i])
