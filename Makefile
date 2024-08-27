@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/08/27 15:31:33 by svereten         ###   ########.fr        #
+#    Updated: 2024/08/27 16:15:39 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_strchr \
 			libft/ft_strrchr \
 			libft/ft_strncmp \
+			libft/ft_strcmp \
 			libft/ft_strlcpy \
 			libft/ft_strlcat \
 			libft/ft_strnstr \
