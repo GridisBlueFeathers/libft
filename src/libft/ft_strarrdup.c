@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 17:20:19 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/26 18:45:49 by svereten         ###   ########.fr       */
+/*   Updated: 2024/08/27 16:40:42 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
@@ -31,7 +31,7 @@ char	**ft_strarrdup(char **arr)
 	{
 		res[i] = ft_strdup(arr[i]);
 		if (!res[i])
-			return (ft_free(STR_ARR, res), NULL);
+			return (ft_free(STR_ARR, &res), NULL);
 		i++;
 	}
 	return (res);
