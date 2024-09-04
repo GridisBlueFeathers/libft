@@ -6,31 +6,49 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:17:58 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/26 00:28:00 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:41:52 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
 
-static void	ft_putnbr_fd_worker(int n, int mod, int fd)
+static int	ft_putnbr_fd_worker(int n, int mod, int fd)
 {
+	int	res;
+	int	bytes_written;
+
+	res = 0;
 	if ((mod == -1 && n > -10) || (mod == 1 && n < 10))
-	{
-		ft_putchar_fd((mod * n) + '0', fd);
-		return ;
-	}
-	ft_putnbr_fd_worker(n / 10, mod, fd);
-	ft_putnbr_fd_worker(n % 10, mod, fd);
+		return (ft_putchar_fd((mod * n) + '0', fd));
+	bytes_written = ft_putnbr_fd_worker(n / 10, mod, fd);
+	if (bytes_written == -1)
+		return (-1);
+	res += bytes_written;
+	bytes_written = ft_putnbr_fd_worker(n % 10, mod, fd);
+	if (bytes_written == -1)
+		return (-1);
+	res += bytes_written;
+	return (res);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
+	int	res;
+	int	bytes_written;
 	int	mod;
 
 	mod = 1;
+	res = 0;
 	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		bytes_written = ft_putchar_fd('-', fd);
+		if (bytes_written == -1)
+			return (-1);
 		mod = -1;
+		res++;
 	}
-	ft_putnbr_fd_worker(n, mod, fd);
+	bytes_written = ft_putnbr_fd_worker(n, mod, fd);
+	if (bytes_written == -1)
+		return (-1);
+	res += bytes_written;
+	return (res);
 }

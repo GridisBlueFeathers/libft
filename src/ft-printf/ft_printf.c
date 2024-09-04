@@ -6,31 +6,32 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:54:24 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/26 00:32:12 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:39:39 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/ft_printf.h"
+#include "libft/libft.h"
 
-static int	ft_format(va_list ap, char f)
+static int	ft_format(va_list ap, int fd, char f)
 {
 	if (f == 'c')
-		return (ft_print_char(va_arg(ap, int)));
+		return (ft_putchar_fd(va_arg(ap, int), fd));
 	if (f == 's')
-		return (ft_print_string(va_arg(ap, char *)));
+		return (ft_putstr_fd(va_arg(ap, char *), fd));
 	if (f == 'p')
 		return (ft_print_pointer_addr(va_arg(ap, void *)));
 	if (f == 'd' || f == 'i')
-		return (ft_print_int(va_arg(ap, int)));
+		return (ft_putnbr_fd(va_arg(ap, int), fd));
 	if (f == 'u')
 		return (ft_print_uint(va_arg(ap, unsigned int)));
 	if (f == 'x' || f == 'X')
 		return (ft_print_uhex(va_arg(ap, unsigned int), f));
 	if (f == '%')
-		return (ft_print_char('%'));
+		return (ft_putchar_fd('%', fd));
 	return (-1);
 }
 
-static int	ft_iterate_print(va_list ap, const char *fmt)
+static int	ft_iterate_print(va_list ap, int fd, const char *fmt)
 {
 	size_t	len;
 	size_t	i;
@@ -42,7 +43,7 @@ static int	ft_iterate_print(va_list ap, const char *fmt)
 	{
 		if (fmt[i + 1] && fmt[i] == '%')
 		{
-			bytes_written = ft_format(ap, fmt[i + 1]);
+			bytes_written = ft_format(ap, fd, fmt[i + 1]);
 			i++;
 		}
 		else
@@ -55,6 +56,20 @@ static int	ft_iterate_print(va_list ap, const char *fmt)
 	return (len);
 }
 
+int	ft_dprintf(int fd, const char *fmt, ...)
+{
+	va_list	ap;
+	size_t	len;
+
+	if (!fmt)
+		return (-1);
+	len = 0;
+	va_start(ap, fmt);
+	len = ft_iterate_print(ap, fd, fmt);
+	va_end(ap);
+	return (len);
+}
+
 int	ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
@@ -64,7 +79,7 @@ int	ft_printf(const char *fmt, ...)
 		return (-1);
 	len = 0;
 	va_start(ap, fmt);
-	len = ft_iterate_print(ap, fmt);
+	len = ft_iterate_print(ap, STDOUT_FILENO, fmt);
 	va_end(ap);
 	return (len);
 }
