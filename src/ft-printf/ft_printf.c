@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:54:24 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/04 15:39:39 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:50:14 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/ft_printf.h"
@@ -19,13 +19,13 @@ static int	ft_format(va_list ap, int fd, char f)
 	if (f == 's')
 		return (ft_putstr_fd(va_arg(ap, char *), fd));
 	if (f == 'p')
-		return (ft_print_pointer_addr(va_arg(ap, void *)));
+		return (ft_print_pointer_addr(va_arg(ap, void *), fd));
 	if (f == 'd' || f == 'i')
 		return (ft_putnbr_fd(va_arg(ap, int), fd));
 	if (f == 'u')
-		return (ft_print_uint(va_arg(ap, unsigned int)));
+		return (ft_print_uint(va_arg(ap, unsigned int), fd));
 	if (f == 'x' || f == 'X')
-		return (ft_print_uhex(va_arg(ap, unsigned int), f));
+		return (ft_print_uhex(va_arg(ap, unsigned int), fd, f));
 	if (f == '%')
 		return (ft_putchar_fd('%', fd));
 	return (-1);
@@ -47,7 +47,7 @@ static int	ft_iterate_print(va_list ap, int fd, const char *fmt)
 			i++;
 		}
 		else
-			bytes_written = ft_print_char(fmt[i]);
+			bytes_written = ft_putchar_fd(fmt[i], fd);
 		i++;
 		if (bytes_written == -1)
 			return (bytes_written);

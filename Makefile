@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/08/27 16:31:30 by svereten         ###   ########.fr        #
+#    Updated: 2024/09/04 15:49:36 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,9 +70,6 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_strarrcmp \
 			libft/ft_putstrarr_fd \
 			get-next-line/get_next_line \
-			ft-printf/ft_print_char \
-			ft-printf/ft_print_string \
-			ft-printf/ft_print_int \
 			ft-printf/ft_print_uint \
 			ft-printf/ft_print_uhex \
 			ft-printf/ft_print_pointer_addr \
