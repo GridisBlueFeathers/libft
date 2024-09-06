@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/04 15:42:47 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/06 14:38:38 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,5 @@ char	**ft_strarrdup(char **arr);
 size_t	ft_strarrlen(char **arr);
 int		ft_strarrcmp(char **arr1, char **arr2);
 void	ft_putstrarr_fd(char **arr, int fd);
+void	ft_size_t_increment_check(size_t *to_inc, int *check);
 #endif

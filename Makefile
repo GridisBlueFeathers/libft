@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/09/04 15:49:36 by svereten         ###   ########.fr        #
+#    Updated: 2024/09/06 14:38:16 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_strarrlen \
 			libft/ft_strarrcmp \
 			libft/ft_putstrarr_fd \
+			libft/ft_size_t_increment_check \
 			get-next-line/get_next_line \
 			ft-printf/ft_print_uint \
 			ft-printf/ft_print_uhex \
