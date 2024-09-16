@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:31:16 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/30 17:05:19 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/16 10:12:11 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_H
@@ -21,9 +21,7 @@
 # endif
 
 # include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
 
-char	*get_next_line(int fd);
+int	get_next_line(int fd, char **line, int clean);
 
 #endif
