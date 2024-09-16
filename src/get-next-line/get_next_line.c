@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:34:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/23 16:06:30 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/16 10:11:56 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/get_next_line.h"
@@ -50,28 +50,28 @@ static char	*remove_output(char *fd_buf, char *aux_buf)
 	return (ft_free(STR, &fd_buf), res);
 }
 
-char	*get_next_line(int fd)
+int	get_next_line(int fd, char **line, int clean)
 {
 	static char	*fd_buf[MAX_FD];
 	char		*aux_buf;
 	int			bytes_read;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (0);
 	aux_buf = (char *)malloc(BUFFER_SIZE + 1);
-	if (!aux_buf)
-		return (ft_free(STR, &fd_buf[fd]), NULL);
+	if (!aux_buf || clean)
+		return (free(aux_buf), ft_free(STR, &fd_buf[fd]), 0);
 	bytes_read = 1;
 	while (!ft_strchr(fd_buf[fd], '\n') && bytes_read)
 	{
 		bytes_read = read(fd, aux_buf, BUFFER_SIZE);
 		if (bytes_read == -1)
-			return (free(aux_buf), ft_free(STR, &fd_buf[fd]), NULL);
+			return (free(aux_buf), ft_free(STR, &fd_buf[fd]), 0);
 		aux_buf[bytes_read] = '\0';
 		fd_buf[fd] = ft_strjoin(fd_buf[fd], aux_buf);
 	}
 	free(aux_buf);
 	aux_buf = get_next_output(fd_buf[fd]);
 	fd_buf[fd] = remove_output(fd_buf[fd], aux_buf);
-	return (aux_buf);
+	return (*line = aux_buf, 1);
 }
