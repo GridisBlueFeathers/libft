@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:34:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/16 10:11:56 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/18 01:04:53 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/get_next_line.h"
@@ -69,6 +69,8 @@ int	get_next_line(int fd, char **line, int clean)
 			return (free(aux_buf), ft_free(STR, &fd_buf[fd]), 0);
 		aux_buf[bytes_read] = '\0';
 		fd_buf[fd] = ft_strjoin(fd_buf[fd], aux_buf);
+		if (!fd_buf[fd])
+			return (free(aux_buf), 0);
 	}
 	free(aux_buf);
 	aux_buf = get_next_output(fd_buf[fd]);
