@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/16 13:53:35 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/17 17:45:40 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,5 @@ int		ft_strarrcmp(char **arr1, char **arr2);
 void	ft_putstrarr_fd(char **arr, int fd);
 void	ft_size_t_increment_check(size_t *to_inc, int *check);
 int		ft_atoi_check(char *str, int *res);
+int		ft_isnumber(char *str);
 #endif
