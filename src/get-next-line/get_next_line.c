@@ -6,12 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:34:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/18 01:04:53 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/18 10:06:29 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/get_next_line.h"
 
-static char	*get_next_output(char *fd_buf)
+static char	*get_next_output(char *fd_buf, int *check)
 {
 	char	*res;
 	char	*nl_location;
@@ -23,16 +23,20 @@ static char	*get_next_output(char *fd_buf)
 	if (!nl_location)
 	{
 		res = ft_substr(fd_buf, 0, ft_strlen(fd_buf));
+		if (!res)
+			*check = 0;
 		if (!res || !ft_strlen(res))
 			return (free(res), NULL);
 		return (res);
 	}
 	len = nl_location - fd_buf + 1;
 	res = ft_substr(fd_buf, 0, len);
+	if (!res)
+		*check = 0;
 	return (res);
 }
 
-static char	*remove_output(char *fd_buf, char *aux_buf)
+static char	*remove_output(char *fd_buf, char *aux_buf, int *check)
 {
 	char	*res;
 	char	*nl_location;
@@ -47,6 +51,8 @@ static char	*remove_output(char *fd_buf, char *aux_buf)
 		return (ft_free(STR, &fd_buf), NULL);
 	nnl_index = nl_location - fd_buf;
 	res = ft_substr(fd_buf, nnl_index + 1, ft_strlen(fd_buf) - nnl_index - 1);
+	if (!res)
+		check = 0;
 	return (ft_free(STR, &fd_buf), res);
 }
 
@@ -73,7 +79,8 @@ int	get_next_line(int fd, char **line, int clean)
 			return (free(aux_buf), 0);
 	}
 	free(aux_buf);
-	aux_buf = get_next_output(fd_buf[fd]);
-	fd_buf[fd] = remove_output(fd_buf[fd], aux_buf);
-	return (*line = aux_buf, 1);
+	clean = 1;
+	aux_buf = get_next_output(fd_buf[fd], &clean);
+	fd_buf[fd] = remove_output(fd_buf[fd], aux_buf, &clean);
+	return (*line = aux_buf, clean);
 }
