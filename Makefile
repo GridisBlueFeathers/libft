@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/09/17 17:45:59 by svereten         ###   ########.fr        #
+#    Updated: 2024/09/18 11:06:15 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_lstiter \
 			libft/ft_lstmap \
 			libft/ft_free \
+			libft/ft_free_noref \
 			libft/ft_strarrdup \
 			libft/ft_strarrlen \
 			libft/ft_strarrcmp \
