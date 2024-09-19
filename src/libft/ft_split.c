@@ -6,28 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:37:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/26 00:28:11 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/19 10:44:15 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
-
-static int	ft_count_words(char const *s, char c)
-{
-	int	i;
-	int	res;
-
-	i = 0;
-	res = 0;
-	while (s[i])
-	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1])
-			res++;
-		i++;
-	}
-	if (s[0] != c && s[0])
-		res++;
-	return (res);
-}
 
 static void	ft_free_split(char **res, int words_amount)
 {
