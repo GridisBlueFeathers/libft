@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/09/18 11:06:15 by svereten         ###   ########.fr        #
+#    Updated: 2024/09/19 10:51:03 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_substr \
 			libft/ft_strjoin \
 			libft/ft_strtrim \
+			libft/ft_count_words \
 			libft/ft_split \
 			libft/ft_itoa \
 			libft/ft_strmapi \
