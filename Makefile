@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/09/19 10:51:03 by svereten         ###   ########.fr        #
+#    Updated: 2024/09/19 11:30:10 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS_DIR = src
 
@@ -74,13 +74,10 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_size_t_increment_check \
 			libft/ft_atoi_check \
 			libft/ft_isnumber \
-			get-next-line/get_next_line \
 			ft-printf/ft_print_uint \
 			ft-printf/ft_print_uhex \
 			ft-printf/ft_print_pointer_addr \
 			ft-printf/ft_printf \
-
-SRCS = ${SRCS_PROJ:%=${SRCS_DIR}/%.c}
 
 OBJS = ${SRCS_PROJ:%=${OBJS_DIR}/%.o}
 
@@ -88,17 +85,20 @@ INCLUDES = -I./include
 
 AR = ar -rcs
 
-RM = rm -f
+RM = rm -rf
 
-OBJS_DIRS = ${sort ${dir ${OBJS}}}
+OBJS_DIRS = ${sort ${dir ${OBJS}}} ${sort ${dir obj/gnl/get_next_line.o}}
+
+GNL_SIZE ?= -D BUFFER_SIZE=42
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} obj/gnl/get_next_line.o
 	${AR} ${NAME} ${OBJS}
 
-bonus: ${BONUS_OBJS} ${OBJS}
-	${AR} ${NAME} $^
+obj/gnl/get_next_line.o: src/gnl/get_next_line.c | ${OBJS_DIRS}
+	${CC} ${CFLAGS} ${GNL_SIZE} -c $< ${INCLUDES} -o $@
+
 
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c | ${OBJS_DIRS}
 	${CC} ${CFLAGS} -c $< ${INCLUDES} -o $@ 
@@ -107,7 +107,7 @@ ${OBJS_DIRS}:
 	mkdir -p $@
 
 clean:
-	${RM} ${OBJS} ${BONUS_OBJS}
+	${RM} ${OBJS_DIR}
 
 fclean: clean
 	${RM} ${NAME}
