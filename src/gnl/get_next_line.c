@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:34:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/19 10:17:15 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/24 11:30:53 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/get_next_line.h"
@@ -52,7 +52,7 @@ static char	*remove_output(char *fd_buf, char *aux_buf, int *check)
 	nnl_index = nl_location - fd_buf;
 	res = ft_substr(fd_buf, nnl_index + 1, ft_strlen(fd_buf) - nnl_index - 1);
 	if (!res)
-		check = 0;
+		*check = 0;
 	return (ft_free(STR, &fd_buf), res);
 }
 
