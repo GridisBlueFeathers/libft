@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:34:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/24 11:30:53 by svereten         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:06:05 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/get_next_line.h"
@@ -36,7 +36,7 @@ static char	*get_next_output(char *fd_buf, int *check)
 	return (res);
 }
 
-static char	*remove_output(char *fd_buf, char *aux_buf, int *check)
+static char	*remove_output(char *fd_buf, char **aux_buf, int *check)
 {
 	char	*res;
 	char	*nl_location;
@@ -44,7 +44,7 @@ static char	*remove_output(char *fd_buf, char *aux_buf, int *check)
 
 	if (!fd_buf)
 		return (NULL);
-	if (!aux_buf)
+	if (!*aux_buf)
 		return (ft_free(STR, &fd_buf), NULL);
 	nl_location = ft_strchr(fd_buf, '\n');
 	if (!nl_location || !nl_location[1])
@@ -52,7 +52,10 @@ static char	*remove_output(char *fd_buf, char *aux_buf, int *check)
 	nnl_index = nl_location - fd_buf;
 	res = ft_substr(fd_buf, nnl_index + 1, ft_strlen(fd_buf) - nnl_index - 1);
 	if (!res)
+	{
+		ft_free(STR, aux_buf);
 		*check = 0;
+	}
 	return (ft_free(STR, &fd_buf), res);
 }
 
@@ -81,6 +84,6 @@ int	get_next_line(int fd, char **line)
 	free(aux_buf);
 	bytes_read = 1;
 	aux_buf = get_next_output(fd_buf[fd], &bytes_read);
-	fd_buf[fd] = remove_output(fd_buf[fd], aux_buf, &bytes_read);
+	fd_buf[fd] = remove_output(fd_buf[fd], &aux_buf, &bytes_read);
 	return (*line = aux_buf, bytes_read);
 }
