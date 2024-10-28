@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/09/18 11:06:15 by svereten         ###   ########.fr        #
+#    Updated: 2024/10/28 17:05:15 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,17 +73,20 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_size_t_increment_check \
 			libft/ft_atoi_check \
 			libft/ft_isnumber \
+			libft/ft_panic \
+			libft/ft_exit \
 			get-next-line/get_next_line \
 			ft-printf/ft_print_uint \
 			ft-printf/ft_print_uhex \
 			ft-printf/ft_print_pointer_addr \
 			ft-printf/ft_printf \
+			internal/gc \
 
 SRCS = ${SRCS_PROJ:%=${SRCS_DIR}/%.c}
 
 OBJS = ${SRCS_PROJ:%=${OBJS_DIR}/%.o}
 
-INCLUDES = -I./include
+INCLUDES = -I./include -I./internal
 
 AR = ar -rcs
 

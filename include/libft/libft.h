@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/18 14:04:15 by svereten         ###   ########.fr       */
+/*   Updated: 2024/10/28 17:13:20 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
-void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -86,4 +85,11 @@ void	ft_putstrarr_fd(char **arr, int fd);
 void	ft_size_t_increment_check(size_t *to_inc, int *check);
 int		ft_atoi_check(char *str, int *res);
 int		ft_isnumber(char *str);
+void	ft_panic(int status, char *msg);
+void	ft_exit(int status);
+
+void	*ft_calloc_no_gc(size_t nmemb, size_t size)
+		__attribute__ ((visibility("hidden")));
+void	*ft_calloc(size_t nmemb, size_t size);
+
 #endif
