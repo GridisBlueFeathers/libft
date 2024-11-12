@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/19 10:46:38 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/12 09:31:03 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,8 @@ void	ft_putstrarr_fd(char **arr, int fd);
 void	ft_size_t_increment_check(size_t *to_inc, int *check);
 int		ft_atoi_check(char *str, int *res);
 int		ft_isnumber(char *str);
+
+void	ft_panic(int status, char *msg);
+void	ft_exit(int status);
+
 #endif

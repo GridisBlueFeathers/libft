@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/09/24 11:14:48 by svereten         ###   ########.fr        #
+#    Updated: 2024/11/12 09:31:37 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,6 +74,8 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_size_t_increment_check \
 			libft/ft_atoi_check \
 			libft/ft_isnumber \
+			libft/ft_panic \
+			libft/ft_exit \
 			ft-printf/ft_print_uint \
 			ft-printf/ft_print_uhex \
 			ft-printf/ft_print_pointer_addr \
