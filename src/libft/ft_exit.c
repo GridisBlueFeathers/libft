@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:02:39 by svereten          #+#    #+#             */
-/*   Updated: 2024/10/28 17:17:07 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/19 17:13:20 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "internal.h"
+#include "gc.h"
 #include "libft/libft.h"
 
 void	ft_exit(int status)
