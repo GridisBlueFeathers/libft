@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_calloc_no_gc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 11:56:08 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/19 16:43:58 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/19 16:43:21 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/19 16:45:26 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
-#include "gc.h"
 
-/**
- * Mimics `calloc`
- *
- * protected against and overflows 0 in arguments
- */
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc_no_gc(size_t nmemb, size_t size)
 {
-	t_data	data;
+	void	*res;
+	size_t	i;
+	size_t	res_size;
 
-	data.ptr = ft_calloc_no_gc(nmemb, size);
-	if (!data.ptr)
-		ft_panic(1, NULL);
-	gc_data_add(PTR, data);
-	return (data.ptr);
+	res_size = nmemb * size;
+	if (!nmemb || !size || res_size / size != nmemb)
+		return (NULL);
+	res = malloc(res_size);
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (i < res_size)
+	{
+		((char *)res)[i] = 0;
+		i++;
+	}
+	return (res);
 }

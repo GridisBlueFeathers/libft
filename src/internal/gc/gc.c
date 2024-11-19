@@ -6,10 +6,11 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:10:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/10/28 17:26:17 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/19 16:42:59 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "internal.h"
+#include "gc.h"
 #include "libft/libft.h"
 
 static t_gc_data	*gc_init(void)
@@ -37,25 +38,6 @@ static void	gc_free(t_gc_data *gc)
 		cur = tmp;
 	}
 	free(gc);
-}
-
-void	gc_add_data(t_gc_node_type t, t_data data)
-{
-	t_gc_node	*node;
-
-	node = (t_gc_node *)ft_calloc_no_gc(1, sizeof(t_gc_node));
-	if (!node)
-		ft_panic(1, NULL);
-	node->type = t;
-	node->data = data;
-	if (gc(GET)->tail)
-	{
-		gc(GET)->tail->next = node;
-		gc(GET)->tail = node;
-		return ;
-	}
-	gc(GET)->head = node;
-	gc(GET)->tail = node;
 }
 
 t_gc_data	*gc(t_option op)

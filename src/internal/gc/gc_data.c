@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   gc_data.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 11:56:08 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/19 16:43:58 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/19 16:41:45 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/19 16:45:59 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
 #include "gc.h"
+#include "internal.h"
 
-/**
- * Mimics `calloc`
- *
- * protected against and overflows 0 in arguments
- */
-void	*ft_calloc(size_t nmemb, size_t size)
+void	gc_data_add(t_gc_node_type t, t_data data)
 {
-	t_data	data;
+	t_gc_node	*node;
 
-	data.ptr = ft_calloc_no_gc(nmemb, size);
-	if (!data.ptr)
+	node = (t_gc_node *)ft_calloc_no_gc(1, sizeof(t_gc_node));
+	if (!node)
 		ft_panic(1, NULL);
-	gc_data_add(PTR, data);
-	return (data.ptr);
+	node->type = t;
+	node->data = data;
+	gc(GET)->amount++;
+	if (gc(GET)->tail)
+	{
+		gc(GET)->tail->next = node;
+		gc(GET)->tail = node;
+		return ;
+	}
+	gc(GET)->head = node;
+	gc(GET)->tail = node;
 }
+
