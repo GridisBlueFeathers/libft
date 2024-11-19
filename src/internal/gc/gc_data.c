@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:41:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/19 16:45:59 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/19 17:00:10 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "gc.h"
@@ -32,3 +32,24 @@ void	gc_data_add(t_gc_node_type t, t_data data)
 	gc(GET)->tail = node;
 }
 
+void	gc_data_remove(t_gc_node_type t, t_data data)
+{
+	t_gc_node	*cur;
+	t_gc_node	*tmp;
+
+	cur = gc(GET)->head;
+	while (cur && cur->next
+		&& ((t == PTR && cur->next->data.ptr != data.ptr)
+			|| (t == FD && cur->next->data.fd != data.fd)))
+		cur = cur->next;
+	if (!cur->next)
+		return ;
+	gc(GET)->amount--;
+	if (t == FD)
+		close(data.fd);
+	else
+		free(data.ptr);
+	tmp = cur->next;
+	cur->next = cur->next->next;
+	free(tmp);
+}
