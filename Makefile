@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/10/28 17:05:15 by svereten         ###   ########.fr        #
+#    Updated: 2024/11/20 15:19:39 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,10 @@ SRCS_PROJ = libft/ft_isalnum \
 			ft-printf/ft_print_uhex \
 			ft-printf/ft_print_pointer_addr \
 			ft-printf/ft_printf \
-			internal/gc \
+			internal/gc/gc \
+			internal/gc/gc_data \
+			internal/ft_calloc_no_gc \
+			internal/libft_init \
 
 SRCS = ${SRCS_PROJ:%=${SRCS_DIR}/%.c}
 
