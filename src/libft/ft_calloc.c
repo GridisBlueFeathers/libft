@@ -6,10 +6,11 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 11:56:08 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/19 16:43:58 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:12:57 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
+#include "internal.h"
 #include "gc.h"
 
 /**
