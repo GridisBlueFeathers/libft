@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/10/28 17:13:20 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:09:23 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ int		ft_isnumber(char *str);
 void	ft_panic(int status, char *msg);
 void	ft_exit(int status);
 
-void	*ft_calloc_no_gc(size_t nmemb, size_t size)
-		__attribute__ ((visibility("hidden")));
 void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_close(int fd);
+int		ft_open(char *path, int oflag, int perm);
 
 #endif
