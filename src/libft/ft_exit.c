@@ -6,12 +6,14 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:02:39 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/12 09:29:25 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:43:05 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "gc.h"
 #include "libft/libft.h"
 
 void	ft_exit(int status)
 {
+	gc(FREE);
 	exit(status);
 }

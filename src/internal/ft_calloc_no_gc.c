@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrarr_fd.c                                  :+:      :+:    :+:   */
+/*   ft_calloc_no_gc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 14:23:56 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 15:33:43 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/19 16:43:21 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/19 16:45:26 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
 
-void	ft_putstrarr_fd(char **arr, int fd)
+void	*ft_calloc_no_gc(size_t nmemb, size_t size)
 {
-	int	i;
+	void	*res;
+	size_t	i;
+	size_t	res_size;
 
+	res_size = nmemb * size;
+	if (!nmemb || !size || res_size / size != nmemb)
+		return (NULL);
+	res = malloc(res_size);
+	if (!res)
+		return (NULL);
 	i = 0;
-	if (!arr)
+	while (i < res_size)
 	{
-		ft_putstr_fd("NULL", fd);
-		return ;
-	}
-	ft_putstr_fd("{", fd);
-	while (arr[i])
-	{
-		ft_putstr_fd("\"", fd);
-		ft_putstr_fd(arr[i], fd);
-		ft_putstr_fd("\", ", fd);
+		((char *)res)[i] = 0;
 		i++;
 	}
-	ft_putstr_fd("NULL}", fd);
+	return (res);
 }

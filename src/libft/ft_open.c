@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrarr_fd.c                                  :+:      :+:    :+:   */
+/*   ft_open.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 14:23:56 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 15:33:43 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/20 15:40:24 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/20 16:57:55 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "gc.h"
+#include <fcntl.h>
 
-void	ft_putstrarr_fd(char **arr, int fd)
+int	ft_open(char *path, int oflag, int perm)
 {
-	int	i;
+	int		res;
+	t_data	data;
 
-	i = 0;
-	if (!arr)
-	{
-		ft_putstr_fd("NULL", fd);
-		return ;
-	}
-	ft_putstr_fd("{", fd);
-	while (arr[i])
-	{
-		ft_putstr_fd("\"", fd);
-		ft_putstr_fd(arr[i], fd);
-		ft_putstr_fd("\", ", fd);
-		i++;
-	}
-	ft_putstr_fd("NULL}", fd);
+	res = open(path, oflag, perm);
+	if (res < 0)
+		return (res);
+	data.fd = res;
+	gc_data_add(FD, data);
+	return (res);
 }
