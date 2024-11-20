@@ -1,33 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrarr_fd.c                                  :+:      :+:    :+:   */
+/*   libft_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 14:23:56 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 15:33:43 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/19 16:47:42 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/19 16:49:55 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "gc.h"
 
-void	ft_putstrarr_fd(char **arr, int fd)
+void	libft_init(void)
 {
-	int	i;
-
-	i = 0;
-	if (!arr)
-	{
-		ft_putstr_fd("NULL", fd);
-		return ;
-	}
-	ft_putstr_fd("{", fd);
-	while (arr[i])
-	{
-		ft_putstr_fd("\"", fd);
-		ft_putstr_fd(arr[i], fd);
-		ft_putstr_fd("\", ", fd);
-		i++;
-	}
-	ft_putstr_fd("NULL}", fd);
+	gc(GET);
 }

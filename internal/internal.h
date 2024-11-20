@@ -1,33 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrarr_fd.c                                  :+:      :+:    :+:   */
+/*   internal.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 14:23:56 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 15:33:43 by svereten         ###   ########.fr       */
+/*   Created: 2024/10/28 16:11:11 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/19 16:49:26 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#ifndef INTERNAL_H
+# define INTERNAL_H
 
-void	ft_putstrarr_fd(char **arr, int fd)
-{
-	int	i;
+# include "libft/libft.h"
 
-	i = 0;
-	if (!arr)
-	{
-		ft_putstr_fd("NULL", fd);
-		return ;
-	}
-	ft_putstr_fd("{", fd);
-	while (arr[i])
-	{
-		ft_putstr_fd("\"", fd);
-		ft_putstr_fd(arr[i], fd);
-		ft_putstr_fd("\", ", fd);
-		i++;
-	}
-	ft_putstr_fd("NULL}", fd);
-}
+void	libft_init(void) __attribute__ ((constructor(1)));
+void	*ft_calloc_no_gc(size_t nmemb, size_t size);
+
+#endif

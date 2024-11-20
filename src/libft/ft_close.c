@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrarr_fd.c                                  :+:      :+:    :+:   */
+/*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 14:23:56 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 15:33:43 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/20 16:58:40 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/20 17:01:30 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "gc.h"
 #include "libft/libft.h"
+#include <unistd.h>
 
-void	ft_putstrarr_fd(char **arr, int fd)
+void	ft_close(int fd)
 {
-	int	i;
+	t_data data;
 
-	i = 0;
-	if (!arr)
-	{
-		ft_putstr_fd("NULL", fd);
+	if (fd < 0)
 		return ;
-	}
-	ft_putstr_fd("{", fd);
-	while (arr[i])
-	{
-		ft_putstr_fd("\"", fd);
-		ft_putstr_fd(arr[i], fd);
-		ft_putstr_fd("\", ", fd);
-		i++;
-	}
-	ft_putstr_fd("NULL}", fd);
+	if (close(fd) == -1)
+		ft_panic(1, NULL);
+	data.fd = fd;
+	gc_data_remove(FD, data);
 }

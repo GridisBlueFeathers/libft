@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/12 09:31:03 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/20 17:42:38 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
-void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -90,5 +89,9 @@ int		ft_isnumber(char *str);
 
 void	ft_panic(int status, char *msg);
 void	ft_exit(int status);
+
+void	*ft_calloc(size_t nmemb, size_t size);
+void	ft_close(int fd);
+int		ft_open(char *path, int oflag, int perm);
 
 #endif
