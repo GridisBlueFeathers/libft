@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:33:07 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/19 17:09:30 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:29:05 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
@@ -23,12 +23,13 @@ static void	ft_free_str_arr(char **arr)
 	i = 0;
 	if (!arr)
 		return ;
-	data.ptr = arr;
 	while (arr[i])
 	{
-		ft_free(STR, &arr[i]);
+		data.ptr = arr[i];
+		gc_data_remove(PTR, data);
 		i++;
 	}
+	data.ptr = arr;
 	gc_data_remove(PTR, data);
 }
 
