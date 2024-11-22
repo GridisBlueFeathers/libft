@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrarr_fd.c                                  :+:      :+:    :+:   */
+/*   stdio.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 14:23:56 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:47:46 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/22 17:40:28 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/22 17:48:02 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/stdio.h"
+#ifndef STDIO_H
+# define STDIO_H
 
-void	ft_putstrarr_fd(char **arr, int fd)
-{
-	int	i;
+# include <unistd.h>
 
-	i = 0;
-	if (!arr)
-	{
-		ft_putstr_fd("NULL", fd);
-		return ;
-	}
-	ft_putstr_fd("{", fd);
-	while (arr[i])
-	{
-		ft_putstr_fd("\"", fd);
-		ft_putstr_fd(arr[i], fd);
-		ft_putstr_fd("\", ", fd);
-		i++;
-	}
-	ft_putstr_fd("NULL}", fd);
-}
+/* libc copies */
+
+//
+
+/* libft */
+
+//
+int		ft_putchar_fd(char c, int fd);
+int		ft_putendl_fd(char *s, int fd);
+int		ft_putnbr_fd(int n, int fd);
+int		ft_putstr_fd(char *s, int fd);
+void	ft_putstrarr_fd(char **arr, int fd);
+
+#endif
