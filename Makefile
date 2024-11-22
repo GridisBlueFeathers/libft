@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/11/20 17:42:11 by svereten         ###   ########.fr        #
+#    Updated: 2024/11/22 15:40:14 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,7 @@ SRCS_DIR = src
 
 OBJS_DIR = obj
 
-SRCS_PROJ = libft/ft_isalnum \
-			libft/ft_isalpha \
-			libft/ft_isascii \
-			libft/ft_isdigit \
-			libft/ft_isprint \
-			libft/ft_memset \
+SRCS_PROJ = libft/ft_memset \
 			libft/ft_strlen \
 			libft/ft_bzero \
 			libft/ft_memcpy \
@@ -73,12 +68,17 @@ SRCS_PROJ = libft/ft_isalnum \
 			libft/ft_putstrarr_fd \
 			libft/ft_size_t_increment_check \
 			libft/ft_atoi_check \
-			libft/ft_isnumber \
 			libft/ft_panic \
 			libft/ft_exit \
 			libft/ft_open \
 			libft/ft_close \
-			get-next-line/get_next_line \
+			ctype/ft_isalpha \
+			ctype/ft_isascii \
+			ctype/ft_isdigit \
+			ctype/ft_isprint \
+			ctype/ft_isnumber \
+			ctype/ft_isalnum \
+			gnl/get_next_line \
 			ft-printf/ft_print_uint \
 			ft-printf/ft_print_uhex \
 			ft-printf/ft_print_pointer_addr \

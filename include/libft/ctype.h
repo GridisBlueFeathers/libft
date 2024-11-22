@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ctype.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 19:22:54 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 15:49:03 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/22 15:30:33 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/22 15:48:13 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/ctype.h"
+#ifndef CTYPE_H
+# define CTYPE_H
 
-int	ft_atoi(const char *nptr)
-{
-	int	i;
-	int	mod;
-	int	res;
+/* libc copies */
 
-	i = 0;
-	mod = 1;
-	res = 0;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			mod = -1;
-		i++;
-	}
-	while (ft_isdigit(nptr[i]))
-	{
-		res = res * 10 + mod * (nptr[i] - '0');
-		i++;
-	}
-	return (res);
-}
+//
+int	ft_isalnum(int c);
+int	ft_isprint(int c);
+int	ft_isdigit(int c);
+int	ft_isascii(int c);
+int	ft_isalpha(int c);
+int	ft_isspace(int c);
+
+/* libft */
+
+//
+int	ft_isnumber(char *str);
+
+#endif
