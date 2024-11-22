@@ -6,9 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/26 00:19:53 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft/stdlib.h"
 #include "libft/libft.h"
 
 t_list	*ft_lstnew(void *content)

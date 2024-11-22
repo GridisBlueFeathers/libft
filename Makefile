@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/11/22 15:40:14 by svereten         ###   ########.fr        #
+#    Updated: 2024/11/22 17:35:04 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,15 +36,12 @@ SRCS_PROJ = libft/ft_memset \
 			libft/ft_strlcpy \
 			libft/ft_strlcat \
 			libft/ft_strnstr \
-			libft/ft_atoi \
-			libft/ft_calloc \
 			libft/ft_strdup \
 			libft/ft_substr \
 			libft/ft_strjoin \
 			libft/ft_strtrim \
 			libft/ft_count_words \
 			libft/ft_split \
-			libft/ft_itoa \
 			libft/ft_strmapi \
 			libft/ft_striteri \
 			libft/ft_putchar_fd \
@@ -60,16 +57,10 @@ SRCS_PROJ = libft/ft_memset \
 			libft/ft_lstclear \
 			libft/ft_lstiter \
 			libft/ft_lstmap \
-			libft/ft_free \
-			libft/ft_free_noref \
 			libft/ft_strarrdup \
 			libft/ft_strarrlen \
 			libft/ft_strarrcmp \
 			libft/ft_putstrarr_fd \
-			libft/ft_size_t_increment_check \
-			libft/ft_atoi_check \
-			libft/ft_panic \
-			libft/ft_exit \
 			libft/ft_open \
 			libft/ft_close \
 			ctype/ft_isalpha \
@@ -78,6 +69,13 @@ SRCS_PROJ = libft/ft_memset \
 			ctype/ft_isprint \
 			ctype/ft_isnumber \
 			ctype/ft_isalnum \
+			stdlib/ft_atoi \
+			stdlib/ft_atoi_check \
+			stdlib/ft_itoa \
+			stdlib/ft_calloc \
+			stdlib/ft_free \
+			stdlib/ft_panic \
+			stdlib/ft_exit \
 			gnl/get_next_line \
 			ft-printf/ft_print_uint \
 			ft-printf/ft_print_uhex \

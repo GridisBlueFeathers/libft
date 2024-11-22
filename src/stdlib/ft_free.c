@@ -6,10 +6,10 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:33:07 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 15:29:05 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:35:43 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "libft/stdlib.h"
 #include "gc.h"
 
 /**
@@ -33,9 +33,6 @@ static void	ft_free_str_arr(char **arr)
 	gc_data_remove(PTR, data);
 }
 
-/**
- * Frees variable and sets it to NULL, variable should be passed by reference
- */
 void	ft_free(t_type type, void *ref)
 {
 	void	*ptr;

@@ -6,10 +6,11 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:37:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/19 10:44:15 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:32:56 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
+#include "libft/stdlib.h"
 
 static void	ft_free_split(char **res, int words_amount)
 {

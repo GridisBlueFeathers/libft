@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 15:41:45 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:15:41 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int		ft_strcmp(char *s1, char *s2);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
-int		ft_atoi(const char *nptr);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -64,27 +63,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
-typedef enum e_type
-{
-	STR,
-	STRUCT,
-	STR_ARR,
-}	t_type;
-
-void	ft_free(t_type type, void *ref);
-void	ft_free_noref(t_type t, void *ptr);
-
 char	**ft_strarrdup(char **arr);
 size_t	ft_strarrlen(char **arr);
 int		ft_strarrcmp(char **arr1, char **arr2);
 void	ft_putstrarr_fd(char **arr, int fd);
 void	ft_size_t_increment_check(size_t *to_inc, int *check);
-int		ft_atoi_check(char *str, int *res);
 
 void	ft_panic(int status, char *msg);
-void	ft_exit(int status);
 
-void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_close(int fd);
 int		ft_open(char *path, int oflag, int perm);
 

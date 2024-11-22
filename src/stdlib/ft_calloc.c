@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_size_t_increment_check.c                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 14:35:52 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/06 18:52:53 by svereten         ###   ########.fr       */
+/*   Created: 2024/04/04 11:56:08 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/22 17:09:20 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "internal.h"
+#include "gc.h"
 
-void	ft_size_t_increment_check(size_t *to_inc, int *check)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	prev;
+	t_data	data;
 
-	prev = *to_inc;
-	(*to_inc)++;
-	if (prev > *to_inc)
-		*check = 0;
+	data.ptr = ft_calloc_no_gc(nmemb, size);
+	if (!data.ptr)
+		ft_panic(1, NULL);
+	gc_data_add(PTR, data);
+	return (data.ptr);
 }

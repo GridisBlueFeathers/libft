@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_panic.c                                         :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/28 16:59:05 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 17:43:31 by svereten         ###   ########.fr       */
+/*   Created: 2024/10/28 17:02:39 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/22 17:12:18 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/ft_printf.h"
-#include "libft/libft.h"
-#include <errno.h>
+#include "gc.h"
+#include "libft/stdlib.h"
 
-void	ft_panic(int status, char *msg)
+void	ft_exit(int status)
 {
-	if (msg)
-		ft_dprintf(STDERR_FILENO, msg);
-	else if (errno)
-		perror("libft");
-	ft_exit(status);
+	gc(FREE);
+	exit(status);
 }

@@ -6,10 +6,11 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 17:20:19 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/27 16:40:42 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:34:26 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
+#include "libft/stdlib.h"
 
 /**
  * Duplicates string array

@@ -6,12 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 19:50:29 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/26 00:16:32 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/22 17:21:58 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "libft/stdlib.h"
 
-static int	ft_get_int_len(int n)
+static int	ft_intlen(int n)
 {
 	int	res;
 
@@ -49,12 +49,10 @@ static void	ft_itoa_worker(char *res, int n, int mod)
 
 char	*ft_itoa(int n)
 {
-	int		len;
 	int		mod;
 	char	*res;
 
-	len = ft_get_int_len(n);
-	res = (char *)ft_calloc(len + 1, sizeof(char));
+	res = (char *)ft_calloc(ft_intlen(n) + 1, sizeof(char));
 	if (!res)
 		return (NULL);
 	mod = 1;
