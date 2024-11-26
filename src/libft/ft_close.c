@@ -6,11 +6,11 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:58:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 17:01:30 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:34:12 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "gc.h"
-#include "libft/libft.h"
+#include "libft/stdlib.h"
 #include <unistd.h>
 
 void	ft_close(int fd)

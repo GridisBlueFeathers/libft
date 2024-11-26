@@ -6,11 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 11:56:08 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:09:20 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:34:27 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "internal.h"
 #include "gc.h"
+#include "libft/stdlib.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {

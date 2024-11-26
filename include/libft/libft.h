@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/26 17:15:06 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:33:45 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@
 
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-char	*ft_itoa(int n);
-int		ft_putchar_fd(char c, int fd);
-int		ft_putstr_fd(char *s, int fd);
-int		ft_putendl_fd(char *s, int fd);
-int		ft_putnbr_fd(int n, int fd);
 
 typedef struct s_list
 {
@@ -40,14 +35,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
-char	**ft_strarrdup(char **arr);
-size_t	ft_strarrlen(char **arr);
-int		ft_strarrcmp(char **arr1, char **arr2);
-void	ft_putstrarr_fd(char **arr, int fd);
-void	ft_size_t_increment_check(size_t *to_inc, int *check);
-
-void	ft_panic(int status, char *msg);
 
 void	ft_close(int fd);
 int		ft_open(char *path, int oflag, int perm);

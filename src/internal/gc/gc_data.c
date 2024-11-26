@@ -6,11 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:41:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 17:00:36 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:34:43 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "gc.h"
 #include "internal.h"
+#include "libft/stdlib.h"
 
 void	gc_data_add(t_gc_node_type t, t_data data)
 {
