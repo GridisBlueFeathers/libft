@@ -6,11 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:54:24 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/04 15:50:14 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:14:17 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/ft_printf.h"
+#include "libft/stdio.h"
 #include "libft/libft.h"
+#include "internal.h"
 
 static int	ft_format(va_list ap, int fd, char f)
 {
@@ -19,13 +20,13 @@ static int	ft_format(va_list ap, int fd, char f)
 	if (f == 's')
 		return (ft_putstr_fd(va_arg(ap, char *), fd));
 	if (f == 'p')
-		return (ft_print_pointer_addr(va_arg(ap, void *), fd));
+		return (ft_putaddr_fd(va_arg(ap, void *), fd));
 	if (f == 'd' || f == 'i')
 		return (ft_putnbr_fd(va_arg(ap, int), fd));
 	if (f == 'u')
-		return (ft_print_uint(va_arg(ap, unsigned int), fd));
+		return (ft_putuint_fd(va_arg(ap, unsigned int), fd));
 	if (f == 'x' || f == 'X')
-		return (ft_print_uhex(va_arg(ap, unsigned int), fd, f));
+		return (ft_putuhex_fd(va_arg(ap, unsigned int), fd, f));
 	if (f == '%')
 		return (ft_putchar_fd('%', fd));
 	return (-1);

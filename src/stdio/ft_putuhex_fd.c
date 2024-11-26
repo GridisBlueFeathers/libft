@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_uhex.c                                    :+:      :+:    :+:   */
+/*   ft_putuhex_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 16:05:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/04 15:47:16 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 16:12:50 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/ft_printf.h"
+#include "libft/stdio.h"
 
 int	ft_print_uhex(unsigned long n, int fd, char fmt)
 {

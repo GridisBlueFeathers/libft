@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/11/22 17:35:04 by svereten         ###   ########.fr        #
+#    Updated: 2024/11/26 16:12:36 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,10 +44,6 @@ SRCS_PROJ = libft/ft_memset \
 			libft/ft_split \
 			libft/ft_strmapi \
 			libft/ft_striteri \
-			libft/ft_putchar_fd \
-			libft/ft_putstr_fd \
-			libft/ft_putendl_fd \
-			libft/ft_putnbr_fd \
 			libft/ft_lstnew \
 			libft/ft_lstadd_front \
 			libft/ft_lstadd_back \
@@ -60,7 +56,6 @@ SRCS_PROJ = libft/ft_memset \
 			libft/ft_strarrdup \
 			libft/ft_strarrlen \
 			libft/ft_strarrcmp \
-			libft/ft_putstrarr_fd \
 			libft/ft_open \
 			libft/ft_close \
 			ctype/ft_isalpha \
@@ -76,15 +71,20 @@ SRCS_PROJ = libft/ft_memset \
 			stdlib/ft_free \
 			stdlib/ft_panic \
 			stdlib/ft_exit \
+			stdio/ft_putchar_fd \
+			stdio/ft_putstr_fd \
+			stdio/ft_putstrarr_fd \
+			stdio/ft_putendl_fd \
+			stdio/ft_putnbr_fd \
+			stdio/ft_putuint_fd \
+			stdio/ft_putuhex_fd \
+			stdio/ft_printf \
 			gnl/get_next_line \
-			ft-printf/ft_print_uint \
-			ft-printf/ft_print_uhex \
-			ft-printf/ft_print_pointer_addr \
-			ft-printf/ft_printf \
 			internal/gc/gc \
 			internal/gc/gc_data \
 			internal/ft_calloc_no_gc \
 			internal/libft_init \
+			internal/ft_putaddr_fd \
 
 OBJS = ${SRCS_PROJ:%=${OBJS_DIR}/%.o}
 
