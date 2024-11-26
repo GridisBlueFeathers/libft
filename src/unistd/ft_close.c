@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:58:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/26 17:34:12 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:36:47 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "gc.h"
@@ -15,7 +15,7 @@
 
 void	ft_close(int fd)
 {
-	t_data data;
+	t_data	data;
 
 	if (fd < 0)
 		return ;

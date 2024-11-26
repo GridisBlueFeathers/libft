@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/11/26 17:31:51 by svereten         ###   ########.fr        #
+#    Updated: 2024/11/26 17:38:06 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,6 @@ SRCS_PROJ = libft/ft_toupper \
 			libft/ft_lstclear \
 			libft/ft_lstiter \
 			libft/ft_lstmap \
-			libft/ft_open \
-			libft/ft_close \
 			ctype/ft_isalpha \
 			ctype/ft_isascii \
 			ctype/ft_isdigit \
@@ -79,6 +77,8 @@ SRCS_PROJ = libft/ft_toupper \
 			strarr/ft_strarrdup \
 			strarr/ft_strarrlen \
 			strarr/ft_strarrcmp \
+			unistd/ft_open \
+			unistd/ft_close \
 			gnl/get_next_line \
 			internal/gc/gc \
 			internal/gc/gc_data \
