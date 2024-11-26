@@ -6,24 +6,11 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:37:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:32:56 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:20:25 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "libft/string.h"
 #include "libft/stdlib.h"
-
-static void	ft_free_split(char **res, int words_amount)
-{
-	int	i;
-
-	i = 0;
-	while (i < words_amount)
-	{
-		free(res[i]);
-		i++;
-	}
-	free(res);
-}
 
 static int	ft_append_to_res(char **res, char const *s, char c, int start)
 {
@@ -47,7 +34,7 @@ static int	ft_append_to_res(char **res, char const *s, char c, int start)
 	return (1);
 }
 
-static int	ft_iterate_split(char const *s, char c, char **res, int size)
+static int	ft_iterate_split(char const *s, char c, char **res)
 {
 	int	i;
 	int	check;
@@ -62,7 +49,7 @@ static int	ft_iterate_split(char const *s, char c, char **res, int size)
 			check = ft_append_to_res(res, s, c, i + 1);
 		if (!check)
 		{
-			ft_free_split(res, size);
+			ft_free(STR_ARR, &res);
 			return (0);
 		}
 		i++;
@@ -77,11 +64,11 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (0);
-	words_num = ft_count_words(s, c);
+	words_num = ft_strwcount(s, c);
 	res = (char **)ft_calloc(words_num + 1, sizeof(char *));
 	if (!res)
 		return (0);
-	if (!ft_iterate_split(s, c, res, words_num))
+	if (!ft_iterate_split(s, c, res))
 		return (0);
 	return (res);
 }

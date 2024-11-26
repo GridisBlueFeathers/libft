@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_strarrcmp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 12:27:29 by svereten          #+#    #+#             */
-/*   Updated: 2024/07/26 00:28:30 by svereten         ###   ########.fr       */
+/*   Created: 2024/08/27 15:19:25 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:23:15 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "libft/string.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+int	ft_strarrcmp(char **arr1, char **arr2)
 {
-	size_t	i;
+	int	i;
 
-	if (!s || !f)
-		return ;
+	if (!arr1 && !arr2)
+		return (1);
+	if ((!arr1 && arr2) || (arr1 && !arr2))
+		return (0);
 	i = 0;
-	while (i < ft_strlen(s))
+	while (arr1[i] && arr2[i])
 	{
-		f(i, &s[i]);
+		if (ft_strcmp(arr1[i], arr2[i]))
+			return (0);
 		i++;
 	}
+	if ((arr1[i] && !arr2[i]) || (!arr1[i] && arr2[i]))
+		return (0);
+	return (1);
 }

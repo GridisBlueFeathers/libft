@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/11/26 16:12:36 by svereten         ###   ########.fr        #
+#    Updated: 2024/11/26 17:31:51 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,30 +20,8 @@ SRCS_DIR = src
 
 OBJS_DIR = obj
 
-SRCS_PROJ = libft/ft_memset \
-			libft/ft_strlen \
-			libft/ft_bzero \
-			libft/ft_memcpy \
-			libft/ft_memmove \
-			libft/ft_memchr \
-			libft/ft_memcmp \
-			libft/ft_toupper \
+SRCS_PROJ = libft/ft_toupper \
 			libft/ft_tolower \
-			libft/ft_strchr \
-			libft/ft_strrchr \
-			libft/ft_strncmp \
-			libft/ft_strcmp \
-			libft/ft_strlcpy \
-			libft/ft_strlcat \
-			libft/ft_strnstr \
-			libft/ft_strdup \
-			libft/ft_substr \
-			libft/ft_strjoin \
-			libft/ft_strtrim \
-			libft/ft_count_words \
-			libft/ft_split \
-			libft/ft_strmapi \
-			libft/ft_striteri \
 			libft/ft_lstnew \
 			libft/ft_lstadd_front \
 			libft/ft_lstadd_back \
@@ -53,9 +31,6 @@ SRCS_PROJ = libft/ft_memset \
 			libft/ft_lstclear \
 			libft/ft_lstiter \
 			libft/ft_lstmap \
-			libft/ft_strarrdup \
-			libft/ft_strarrlen \
-			libft/ft_strarrcmp \
 			libft/ft_open \
 			libft/ft_close \
 			ctype/ft_isalpha \
@@ -64,6 +39,28 @@ SRCS_PROJ = libft/ft_memset \
 			ctype/ft_isprint \
 			ctype/ft_isnumber \
 			ctype/ft_isalnum \
+			string/ft_strlen \
+			string/ft_memset \
+			string/ft_bzero \
+			string/ft_memcpy \
+			string/ft_memmove \
+			string/ft_memchr \
+			string/ft_memcmp \
+			string/ft_strchr \
+			string/ft_strrchr \
+			string/ft_strncmp \
+			string/ft_strcmp \
+			string/ft_strlcpy \
+			string/ft_strlcat \
+			string/ft_strnstr \
+			string/ft_strdup \
+			string/ft_substr \
+			string/ft_strjoin \
+			string/ft_strtrim \
+			string/ft_count_words \
+			string/ft_split \
+			string/ft_strmapi \
+			string/ft_striteri \
 			stdlib/ft_atoi \
 			stdlib/ft_atoi_check \
 			stdlib/ft_itoa \
@@ -79,6 +76,9 @@ SRCS_PROJ = libft/ft_memset \
 			stdio/ft_putuint_fd \
 			stdio/ft_putuhex_fd \
 			stdio/ft_printf \
+			strarr/ft_strarrdup \
+			strarr/ft_strarrlen \
+			strarr/ft_strarrcmp \
 			gnl/get_next_line \
 			internal/gc/gc \
 			internal/gc/gc_data \

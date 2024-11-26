@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strarrdup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/04 23:10:51 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:07 by svereten         ###   ########.fr       */
+/*   Created: 2024/08/14 17:20:19 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:23:28 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "libft/string.h"
+#include "libft/strarr.h"
 #include "libft/stdlib.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	**ft_strarrdup(char **arr)
 {
-	char	*res;
-	size_t	i;
-	size_t	len;
+	char	**res;
+	int		i;
 
-	if (!s || !f)
-		return (0);
-	len = ft_strlen(s);
-	res = (char *)ft_calloc(len + 1, sizeof(char));
+	if (!arr)
+		return (NULL);
+	res = (char **)ft_calloc(ft_strarrlen(arr) + 1, sizeof(char *));
 	if (!res)
-		return (0);
+		return (free(res), NULL);
 	i = 0;
-	while (i < len)
+	while (arr[i])
 	{
-		res[i] = f(i, s[i]);
+		res[i] = ft_strdup(arr[i]);
+		if (!res[i])
+			return (ft_free(STR_ARR, &res), NULL);
 		i++;
 	}
 	return (res);

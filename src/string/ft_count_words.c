@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrdup.c                                     :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 17:20:19 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:34:26 by svereten         ###   ########.fr       */
+/*   Created: 2024/09/19 10:44:08 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:15:24 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
-#include "libft/stdlib.h"
+#include "libft/string.h"
 
-/**
- * Duplicates string array
- *
- * Protected
- */
-char	**ft_strarrdup(char **arr)
+size_t	ft_strwcount(char const *str, char del)
 {
-	char	**res;
-	int		i;
+	size_t	i;
+	size_t	res;
 
-	if (!arr)
-		return (NULL);
-	res = (char **)ft_calloc(ft_strarrlen(arr) + 1, sizeof(char *));
-	if (!res)
-		return (free(res), NULL);
 	i = 0;
-	while (arr[i])
+	res = 0;
+	if (str[0] && str[0] != del)
+		res++;
+	while (str[i])
 	{
-		res[i] = ft_strdup(arr[i]);
-		if (!res[i])
-			return (ft_free(STR_ARR, &res), NULL);
+		if (str[i] == del && str[i + 1] && str[i + 1] != del)
+			res++;
 		i++;
 	}
 	return (res);

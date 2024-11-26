@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strarrcmp.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 15:19:25 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/27 15:28:59 by svereten         ###   ########.fr       */
+/*   Created: 2024/04/05 12:27:29 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:20:59 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/libft.h"
+#include "libft/string.h"
 
-/**
- * Compares string arrays by full size
- *
- * If both are NULL returns 1 anyway
- */
-int	ft_strarrcmp(char **arr1, char **arr2)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	size_t	i;
 
-	if (!arr1 && !arr2)
-		return (1);
-	if ((!arr1 && arr2) || (arr1 && !arr2))
-		return (0);
+	if (!s || !f)
+		return ;
 	i = 0;
-	while (arr1[i] && arr2[i])
+	while (i < ft_strlen(s))
 	{
-		if (ft_strcmp(arr1[i], arr2[i]))
-			return (0);
+		f(i, &s[i]);
 		i++;
 	}
-	if ((arr1[i] && !arr2[i]) || (!arr1[i] && arr2[i]))
-		return (0);
-	return (1);
 }

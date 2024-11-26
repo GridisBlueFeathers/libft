@@ -6,11 +6,11 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 13:11:23 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/26 16:06:48 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:22:21 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/stdio.h"
-#include "libft/libft.h"
+#include "libft/string.h"
 
 int	ft_putstr_fd(char *s, int fd)
 {

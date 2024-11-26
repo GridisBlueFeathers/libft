@@ -1,17 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strarrlen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 17:03:15 by svereten          #+#    #+#             */
-/*   Updated: 2024/08/27 16:14:49 by svereten         ###   ########.fr       */
+/*   Created: 2024/08/18 15:04:41 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 16:21:02 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+size_t	ft_strarrlen(char **arr)
 {
-	return (ft_strncmp(s1, s2, ft_strlen(s1)));
+	size_t	res;
+
+	if (!arr)
+		return (0);
+	res = 0;
+	while (arr[res])
+	{
+		res++;
+	}
+	return (res);
 }
