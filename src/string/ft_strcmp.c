@@ -1,25 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/07/30 17:03:15 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:16:27 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/stdlib.h"
-#include "libft/libft.h"
+#include "libft/string.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_list	*res;
-
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
-		return (0);
-	res->content = content;
-	res->next = 0;
-	return (res);
+	return (ft_strncmp(s1, s2, ft_strlen(s1)));
 }

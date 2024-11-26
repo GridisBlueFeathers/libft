@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strarrcmp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/08/27 15:19:25 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:23:15 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/stdlib.h"
-#include "libft/libft.h"
+#include "libft/string.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_strarrcmp(char **arr1, char **arr2)
 {
-	t_list	*res;
+	int	i;
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
+	if (!arr1 && !arr2)
+		return (1);
+	if ((!arr1 && arr2) || (arr1 && !arr2))
 		return (0);
-	res->content = content;
-	res->next = 0;
-	return (res);
+	i = 0;
+	while (arr1[i] && arr2[i])
+	{
+		if (ft_strcmp(arr1[i], arr2[i]))
+			return (0);
+		i++;
+	}
+	if ((arr1[i] && !arr2[i]) || (!arr1[i] && arr2[i]))
+		return (0);
+	return (1);
 }

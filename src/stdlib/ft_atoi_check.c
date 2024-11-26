@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_atoi_check.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/09/16 13:51:03 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:21:40 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/stdlib.h"
-#include "libft/libft.h"
+#include "libft/string.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_atoi_check(char *str, int *res)
 {
-	t_list	*res;
+	char	*itoa_res;
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
-		return (0);
-	res->content = content;
-	res->next = 0;
-	return (res);
+	*res = ft_atoi(str);
+	itoa_res = ft_itoa(*res);
+	if (!itoa_res || ft_strcmp(str, itoa_res))
+		return (ft_free(STR, &itoa_res), 0);
+	return (ft_free(STR, &itoa_res), 1);
 }

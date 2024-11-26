@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_print_uint.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/04/23 15:59:06 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 16:08:20 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/stdlib.h"
-#include "libft/libft.h"
+#include "libft/stdio.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_putuint_fd(unsigned int n, int fd)
 {
-	t_list	*res;
+	int	bytes_written;
+	int	res;
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
-		return (0);
-	res->content = content;
-	res->next = 0;
+	res = 0;
+	if (n < 10)
+		return (ft_putchar_fd(n + '0', fd));
+	bytes_written = ft_putuint_fd(n / 10, fd);
+	if (bytes_written == -1)
+		return (bytes_written);
+	res += bytes_written;
+	bytes_written = ft_putuint_fd(n % 10, fd);
+	if (bytes_written == -1)
+		return (bytes_written);
+	res += bytes_written;
 	return (res);
 }

@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ctype.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/22 15:30:33 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/22 15:48:13 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/stdlib.h"
-#include "libft/libft.h"
+#ifndef CTYPE_H
+# define CTYPE_H
 
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*res;
+/* libc copies */
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
-		return (0);
-	res->content = content;
-	res->next = 0;
-	return (res);
-}
+//
+int	ft_isalnum(int c);
+int	ft_isprint(int c);
+int	ft_isdigit(int c);
+int	ft_isascii(int c);
+int	ft_isalpha(int c);
+int	ft_isspace(int c);
+
+/* libft */
+
+//
+int	ft_isnumber(char *str);
+
+#endif

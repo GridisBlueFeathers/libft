@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/20 17:42:38 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:36:22 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,8 @@
 # include <unistd.h>
 # include <stdio.h>
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-void	*ft_memset(void *s, int c, size_t n);
-void	ft_bzero(void *s, size_t n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
-void	*ft_memmove(void *dest, const void *src, size_t n);
-void	*ft_memchr(const void *s, int c, size_t n);
-int		ft_memcmp(const void *s1, const void *s2, size_t n);
-size_t	ft_strlen(const char *s);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strrchr(const char *s, int c);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_strcmp(char *s1, char *s2);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
-char	*ft_strnstr(const char *big, const char *little, size_t len);
-int		ft_atoi(const char *nptr);
-char	*ft_strdup(const char *s);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strtrim(char const *s1, char const *set);
-size_t	ft_count_words(char const *s, char c);
-char	**ft_split(char const *s, char c);
-char	*ft_itoa(int n);
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-int		ft_putchar_fd(char c, int fd);
-int		ft_putstr_fd(char *s, int fd);
-int		ft_putendl_fd(char *s, int fd);
-int		ft_putnbr_fd(int n, int fd);
 
 typedef struct s_list
 {
@@ -68,30 +35,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-
-typedef enum e_type
-{
-	STR,
-	STRUCT,
-	STR_ARR,
-}	t_type;
-
-void	ft_free(t_type type, void *ref);
-void	ft_free_noref(t_type t, void *ptr);
-
-char	**ft_strarrdup(char **arr);
-size_t	ft_strarrlen(char **arr);
-int		ft_strarrcmp(char **arr1, char **arr2);
-void	ft_putstrarr_fd(char **arr, int fd);
-void	ft_size_t_increment_check(size_t *to_inc, int *check);
-int		ft_atoi_check(char *str, int *res);
-int		ft_isnumber(char *str);
-
-void	ft_panic(int status, char *msg);
-void	ft_exit(int status);
-
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_close(int fd);
-int		ft_open(char *path, int oflag, int perm);
 
 #endif

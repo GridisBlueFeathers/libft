@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strarrlen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/08/18 15:04:41 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 16:21:02 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/stdlib.h"
 #include "libft/libft.h"
 
-t_list	*ft_lstnew(void *content)
+size_t	ft_strarrlen(char **arr)
 {
-	t_list	*res;
+	size_t	res;
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
+	if (!arr)
 		return (0);
-	res->content = content;
-	res->next = 0;
+	res = 0;
+	while (arr[res])
+	{
+		res++;
+	}
 	return (res);
 }

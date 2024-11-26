@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   unistd.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/26 17:35:51 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:36:26 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/stdlib.h"
-#include "libft/libft.h"
+#ifndef UNISTD_H
+# define UNISTD_H
 
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*res;
+void	ft_close(int fd);
+int		ft_open(char *path, int oflag, int perm);
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
-		return (0);
-	res->content = content;
-	res->next = 0;
-	return (res);
-}
+#endif

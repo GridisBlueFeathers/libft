@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strarrdup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/08/14 17:20:19 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:23:28 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft/string.h"
+#include "libft/strarr.h"
 #include "libft/stdlib.h"
-#include "libft/libft.h"
 
-t_list	*ft_lstnew(void *content)
+char	**ft_strarrdup(char **arr)
 {
-	t_list	*res;
+	char	**res;
+	int		i;
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
+	if (!arr)
+		return (NULL);
+	res = (char **)ft_calloc(ft_strarrlen(arr) + 1, sizeof(char *));
 	if (!res)
-		return (0);
-	res->content = content;
-	res->next = 0;
+		return (free(res), NULL);
+	i = 0;
+	while (arr[i])
+	{
+		res[i] = ft_strdup(arr[i]);
+		if (!res[i])
+			return (ft_free(STR_ARR, &res), NULL);
+		i++;
+	}
 	return (res);
 }

@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/04/03 19:22:54 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/22 15:49:03 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/stdlib.h"
-#include "libft/libft.h"
+#include "libft/ctype.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_atoi(const char *nptr)
 {
-	t_list	*res;
+	int	i;
+	int	mod;
+	int	res;
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
-		return (0);
-	res->content = content;
-	res->next = 0;
+	i = 0;
+	mod = 1;
+	res = 0;
+	while (ft_isspace(nptr[i]))
+		i++;
+	if (nptr[i] == '+' || nptr[i] == '-')
+	{
+		if (nptr[i] == '-')
+			mod = -1;
+		i++;
+	}
+	while (ft_isdigit(nptr[i]))
+	{
+		res = res * 10 + mod * (nptr[i] - '0');
+		i++;
+	}
 	return (res);
 }

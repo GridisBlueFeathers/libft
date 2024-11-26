@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_close.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/11/20 16:58:40 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:36:47 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "gc.h"
 #include "libft/stdlib.h"
-#include "libft/libft.h"
+#include <unistd.h>
 
-t_list	*ft_lstnew(void *content)
+void	ft_close(int fd)
 {
-	t_list	*res;
+	t_data	data;
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
-		return (0);
-	res->content = content;
-	res->next = 0;
-	return (res);
+	if (fd < 0)
+		return ;
+	if (close(fd) == -1)
+		ft_panic(1, NULL);
+	data.fd = fd;
+	gc_data_remove(FD, data);
 }

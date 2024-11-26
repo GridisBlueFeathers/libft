@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/05 13:48:53 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:33:29 by svereten         ###   ########.fr       */
+/*   Created: 2024/04/03 16:26:05 by svereten          #+#    #+#             */
+/*   Updated: 2024/11/26 17:17:03 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft/stdlib.h"
-#include "libft/libft.h"
+#include "libft/string.h"
 
-t_list	*ft_lstnew(void *content)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	t_list	*res;
+	size_t	i;
+	size_t	little_len;
+	char	*res;
 
-	res = (t_list *)ft_calloc(1, sizeof(t_list));
-	if (!res)
+	if (!big && !len)
 		return (0);
-	res->content = content;
-	res->next = 0;
+	i = 0;
+	res = 0;
+	little_len = ft_strlen(little);
+	if (!little_len)
+		return ((char *)big);
+	while (big[i] && i < len - little_len + 1 && len >= little_len)
+	{
+		if (!ft_strncmp(&big[i], little, little_len))
+		{
+			res = &((char *)big)[i];
+			break ;
+		}
+		i++;
+	}
 	return (res);
 }
