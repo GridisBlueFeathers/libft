@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:47:40 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/26 17:36:22 by svereten         ###   ########.fr       */
+/*   Updated: 2024/11/30 13:14:46 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+
+# include "libft/color.h"
+# include "libft/ctype.h"
+# include "libft/get_next_line.h"
+# include "libft/stdio.h"
+# include "libft/stdlib.h"
+# include "libft/strarr.h"
+# include "libft/unistd.h"
+# include "libft/string.h"
 
 int		ft_toupper(int c);
 int		ft_tolower(int c);
