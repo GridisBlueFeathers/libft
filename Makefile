@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/11/26 17:38:06 by svereten         ###   ########.fr        #
+#    Updated: 2024/11/30 14:33:29 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS_PROJ = libft/ft_toupper \
 			ctype/ft_isprint \
 			ctype/ft_isnumber \
 			ctype/ft_isalnum \
+			ctype/ft_isspace \
 			string/ft_strlen \
 			string/ft_memset \
 			string/ft_bzero \
