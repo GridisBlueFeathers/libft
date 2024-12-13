@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 13:33:07 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:35:43 by svereten         ###   ########.fr       */
+/*   Updated: 2024/12/13 23:06:32 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/stdlib.h"
@@ -27,10 +27,12 @@ static void	ft_free_str_arr(char **arr)
 	{
 		data.ptr = arr[i];
 		gc_data_remove(PTR, data);
+		free(arr[i]);
 		i++;
 	}
 	data.ptr = arr;
 	gc_data_remove(PTR, data);
+	free(arr);
 }
 
 void	ft_free(t_type type, void *ref)
@@ -41,8 +43,9 @@ void	ft_free(t_type type, void *ref)
 	ptr = *(void **)ref;
 	data.ptr = ptr;
 	if (type == STR || type == STRUCT)
-		gc_data_remove(PTR, data);
+		free(ptr);
 	if (type == STR_ARR)
 		ft_free_str_arr((char **)ptr);
 	*(void **)ref = NULL;
+	gc_data_remove(PTR, data);
 }

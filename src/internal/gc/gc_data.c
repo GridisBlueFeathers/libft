@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:41:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/26 17:34:43 by svereten         ###   ########.fr       */
+/*   Updated: 2024/12/13 23:07:33 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "gc.h"
@@ -46,8 +46,6 @@ void	gc_data_remove(t_gc_node_type t, t_data data)
 	if (!cur->next)
 		return ;
 	gc(GET)->amount--;
-	if (t == PTR)
-		free(data.ptr);
 	tmp = cur->next;
 	cur->next = cur->next->next;
 	free(tmp);
