@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:41:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/12/13 23:07:33 by svereten         ###   ########.fr       */
+/*   Updated: 2025/01/11 15:07:27 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "gc.h"
@@ -21,10 +21,14 @@ void	gc_data_add(t_gc_node_type t, t_data data)
 	if (!node)
 		ft_panic(1, NULL);
 	node->type = t;
-	node->data = data;
+	if (t == PTR)
+		node->data.ptr = data.ptr;
+	else
+		node->data.fd = data.fd;
 	gc(GET)->amount++;
 	if (gc(GET)->tail)
 	{
+		node->prev = gc(GET)->tail;
 		gc(GET)->tail->next = node;
 		gc(GET)->tail = node;
 		return ;
@@ -33,20 +37,33 @@ void	gc_data_add(t_gc_node_type t, t_data data)
 	gc(GET)->tail = node;
 }
 
+static void	gc_data_pop(t_gc_node *node)
+{
+	gc(GET)->amount--;
+	if (node->prev)
+		node->prev->next = node->next;
+	else
+		gc(GET)->head = node->next;
+	if (node->next)
+		node->next->prev = node->prev;
+	else
+		gc(GET)->tail = node->prev;
+	free(node);
+}
+
 void	gc_data_remove(t_gc_node_type t, t_data data)
 {
 	t_gc_node	*cur;
-	t_gc_node	*tmp;
 
 	cur = gc(GET)->head;
-	while (cur && cur->next
-		&& ((t == PTR && cur->next->data.ptr != data.ptr)
-			|| (t == FD && cur->next->data.fd != data.fd)))
+	while (cur)
+	{
+		if ((t == PTR && data.ptr == cur->data.ptr)
+			|| (t == FD && data.fd == cur->data.fd))
+		{
+			gc_data_pop(cur);
+			return ;
+		}
 		cur = cur->next;
-	if (!cur->next)
-		return ;
-	gc(GET)->amount--;
-	tmp = cur->next;
-	cur->next = cur->next->next;
-	free(tmp);
+	}
 }

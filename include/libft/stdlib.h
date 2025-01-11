@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:52:44 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:39:13 by svereten         ###   ########.fr       */
+/*   Updated: 2025/01/11 15:43:26 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STDLIB_H
@@ -20,6 +20,10 @@ typedef enum e_type
 	STRUCT,
 	STR_ARR,
 }	t_type;
+
+# ifndef PANIC_MSG
+#  define PANIC_MSG "libft"
+# endif
 
 /* libc copies */
 

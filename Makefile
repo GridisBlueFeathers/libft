@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2024/11/30 14:33:29 by svereten         ###   ########.fr        #
+#    Updated: 2025/01/11 16:37:46 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,10 @@ NAME = libft.a
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
+
+ifdef DEBUG
+	CFLAGS := ${CFLAGS} -g
+endif
 
 SRCS_DIR = src
 
@@ -54,6 +58,7 @@ SRCS_PROJ = libft/ft_toupper \
 			string/ft_strnstr \
 			string/ft_strdup \
 			string/ft_substr \
+			string/ft_substri \
 			string/ft_strjoin \
 			string/ft_strtrim \
 			string/ft_count_words \
@@ -99,14 +104,22 @@ OBJS_DIRS = ${sort ${dir ${OBJS}}} obj/gnl
 
 GNL_SIZE ?= -D BUFFER_SIZE=42
 
+PANIC_MSG ?= libft
+
 all: ${NAME}
 
-${NAME}: ${OBJS} obj/gnl/get_next_line.o
+${NAME}: ${OBJS}
 	${AR} ${NAME} $^
+
+# Special compilation
 
 obj/gnl/get_next_line.o: src/gnl/get_next_line.c | ${OBJS_DIRS}
 	${CC} ${CFLAGS} ${GNL_SIZE} -c $< ${INCLUDES} -o $@
+	
+obj/stdlib/ft_panic.o: src/stdlib/ft_panic.c | ${OBJS_DIRS}
+	${CC} ${CFLAGS} -D PANIC_MSG=\"${PANIC_MSG}\" -c $< ${INCLUDES} -o $@
 
+# Generic compilation
 
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c | ${OBJS_DIRS}
 	${CC} ${CFLAGS} -c $< ${INCLUDES} -o $@ 

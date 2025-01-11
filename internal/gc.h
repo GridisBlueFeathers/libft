@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:37:06 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/19 17:00:52 by svereten         ###   ########.fr       */
+/*   Updated: 2025/01/11 14:47:14 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GC_H
@@ -35,6 +35,7 @@ typedef struct s_gc_node
 	t_data				data;
 	t_gc_node_type		type;
 	struct s_gc_node	*next;
+	struct s_gc_node	*prev;
 }	t_gc_node;
 
 typedef struct s_gc_data
