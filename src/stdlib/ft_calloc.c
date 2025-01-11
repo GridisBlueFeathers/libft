@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 11:56:08 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/26 17:34:27 by svereten         ###   ########.fr       */
+/*   Updated: 2025/01/11 17:18:02 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "internal.h"
@@ -19,7 +19,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 	data.ptr = ft_calloc_no_gc(nmemb, size);
 	if (!data.ptr)
-		ft_panic(1, NULL);
-	gc_data_add(PTR, data);
+		return (NULL);
+	if (!gc_data_add(PTR, data))
+		return (free(data.ptr), NULL);
 	return (data.ptr);
 }
