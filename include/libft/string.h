@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:52:07 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/26 17:27:09 by svereten         ###   ########.fr       */
+/*   Updated: 2025/01/11 16:37:58 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STRING_H
@@ -50,5 +50,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, size_t start, size_t end);
+char	*ft_substri(char *str, size_t start_i, size_t finish_i);
 
 #endif
