@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:37:06 by svereten          #+#    #+#             */
-/*   Updated: 2025/01/11 14:47:14 by svereten         ###   ########.fr       */
+/*   Updated: 2025/01/13 17:00:22 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GC_H
@@ -47,7 +47,7 @@ typedef struct s_gc_data
 
 t_gc_data	*gc(t_option op);
 
-void		gc_data_add(t_gc_node_type t, t_data data);
+int			gc_data_add(t_gc_node_type t, t_data data);
 void		gc_data_remove(t_gc_node_type t, t_data data);
 
 #endif

@@ -6,20 +6,19 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 16:41:45 by svereten          #+#    #+#             */
-/*   Updated: 2025/01/11 15:07:27 by svereten         ###   ########.fr       */
+/*   Updated: 2025/01/11 17:19:07 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "gc.h"
 #include "internal.h"
-#include "libft/stdlib.h"
 
-void	gc_data_add(t_gc_node_type t, t_data data)
+int	gc_data_add(t_gc_node_type t, t_data data)
 {
 	t_gc_node	*node;
 
 	node = (t_gc_node *)ft_calloc_no_gc(1, sizeof(t_gc_node));
 	if (!node)
-		ft_panic(1, NULL);
+		return (0);
 	node->type = t;
 	if (t == PTR)
 		node->data.ptr = data.ptr;
@@ -31,10 +30,11 @@ void	gc_data_add(t_gc_node_type t, t_data data)
 		node->prev = gc(GET)->tail;
 		gc(GET)->tail->next = node;
 		gc(GET)->tail = node;
-		return ;
+		return (1);
 	}
 	gc(GET)->head = node;
 	gc(GET)->tail = node;
+	return (1);
 }
 
 static void	gc_data_pop(t_gc_node *node)
