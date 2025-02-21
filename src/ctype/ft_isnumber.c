@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 17:38:07 by svereten          #+#    #+#             */
-/*   Updated: 2025/02/21 18:57:53 by svereten         ###   ########.fr       */
+/*   Updated: 2025/02/21 19:03:38 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/ctype.h"
@@ -63,18 +63,6 @@ static int	number_len(char *str)
 	return (res);
 }
 
-int	ft_number_has_sign(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] && ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-		return (1);
-	return (0);
-}
-
 /**
  * For way too big of numbers check is performed in basic check
  * For overflow check if strlen is less than 20, it won't overflow int64
@@ -90,15 +78,13 @@ int	ft_isnumber(char *str)
 		return (1);
 	if (number_len(&str[i]) > 19)
 		return (0);
-	if (ft_number_has_sign(str)
-		&& str[i - 1] == '-'
+	if (ft_strchr(str, '-')
 		&& ft_strncmp(&str[i], LLONG_MIN_STR, ft_strlen(LLONG_MIN_STR)) <= 0)
 		return (1);
-	if (ft_number_has_sign(str)
-		&& str[i - 1] == '+'
+	if (ft_strchr(str, '+')
 		&& ft_strncmp(&str[i], LLONG_MAX_STR, ft_strlen(LLONG_MAX_STR)) <= 0)
 		return (1);
-	if (!ft_number_has_sign(str)
+	if ((!ft_strchr(str, '-') || !ft_strchr(str, '+'))
 		&& ft_strncmp(&str[i], LLONG_MAX_STR, ft_strlen(LLONG_MAX_STR)) <= 0)
 		return (1);
 	return (0);
