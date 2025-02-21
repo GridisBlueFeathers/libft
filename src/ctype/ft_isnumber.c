@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 17:38:07 by svereten          #+#    #+#             */
-/*   Updated: 2025/02/21 17:11:07 by svereten         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:13:10 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/ctype.h"
@@ -51,7 +51,6 @@ static int	overflow_check(char *str)
 
 int	ft_isnumber(char *str)
 {
-
 	if (!str || !basic_check(str) || !overflow_check(str))
 		return (0);
 	return (1);
