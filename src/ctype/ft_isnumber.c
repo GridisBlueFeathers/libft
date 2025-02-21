@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 17:38:07 by svereten          #+#    #+#             */
-/*   Updated: 2025/02/21 17:02:49 by svereten         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:11:07 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/ctype.h"
@@ -44,7 +44,7 @@ static int	overflow_check(char *str)
 		return (1);
 	if (str[0] == '+' && ft_strcmp(&str[1], "9223372036854775807") <= 0)
 		return (1);
-	if (ft_strcmp(str, "9223372036854775807") <= 0)
+	if (ft_isdigit(str[0]) && ft_strcmp(str, "9223372036854775807") <= 0)
 		return (1);
 	return (0);
 }
