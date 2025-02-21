@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 17:38:07 by svereten          #+#    #+#             */
-/*   Updated: 2025/02/21 18:27:59 by svereten         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:34:21 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/ctype.h"
@@ -17,7 +17,7 @@ static int	find_beginning(char *str)
 	int	res;
 
 	res = 0;
-	while (ft_isspace(str[res]))
+	while (str[res] && ft_isspace(str[res]))
 		res++;
 	if (str[0] == '-' || str[0] == '+')
 		res++;
@@ -33,14 +33,12 @@ static int	basic_check(char *str)
 
 	i = 0;
 	has_digits = 0;
-	while (ft_isspace(str[i]))
+	while (str[i] && ft_isspace(str[i]))
 		i++;
 	if (str[0] == '-' || str[0] == '+')
 		i++;
-	while (str[i])
+	while (str[i] && ft_isdigit(str[i]))
 	{
-		if (!ft_isdigit(str[i]))
-			break ;
 		has_digits = 1;
 		i++;
 	}
