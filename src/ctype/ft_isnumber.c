@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 17:38:07 by svereten          #+#    #+#             */
-/*   Updated: 2025/02/21 17:33:40 by svereten         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:27:59 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/ctype.h"
@@ -17,6 +17,8 @@ static int	find_beginning(char *str)
 	int	res;
 
 	res = 0;
+	while (ft_isspace(str[res]))
+		res++;
 	if (str[0] == '-' || str[0] == '+')
 		res++;
 	while (str[res] && str[res] == '0')
@@ -27,17 +29,38 @@ static int	find_beginning(char *str)
 static int	basic_check(char *str)
 {
 	int	i;
+	int	has_digits;
 
 	i = 0;
+	has_digits = 0;
+	while (ft_isspace(str[i]))
+		i++;
 	if (str[0] == '-' || str[0] == '+')
 		i++;
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
+			break ;
+		has_digits = 1;
+		i++;
+	}
+	while (str[i])
+	{
+		if (!ft_isspace(str[i]))
 			return (0);
 		i++;
 	}
-	return (1);
+	return (has_digits);
+}
+
+static int	number_len(char *str)
+{
+	int	res;
+
+	res = 0;
+	while (str[res] && ft_isdigit(str[res]))
+		res++;
+	return (res);
 }
 
 /**
@@ -49,9 +72,9 @@ static int	overflow_check(char *str)
 	int	i;
 
 	i = find_beginning(str);
-	if (ft_strlen(&str[i]) < 19)
+	if (number_len(&str[i]) < 19)
 		return (1);
-	if (ft_strlen(&str[i]) > 19)
+	if (number_len(&str[i]) > 19)
 		return (0);
 	if (str[0] == '-' && ft_strcmp(&str[i], "9223372036854775808") <= 0)
 		return (1);
