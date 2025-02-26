@@ -6,12 +6,19 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:10:45 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/19 16:42:59 by svereten         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:33:40 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "internal.h"
 #include "gc.h"
 #include "libft/libft.h"
+
+__attribute__((constructor))
+static	void	gc_start(void)
+{
+	if (gc(GET) == NULL)
+		exit(1);
+}
 
 static t_gc_data	*gc_init(void)
 {
