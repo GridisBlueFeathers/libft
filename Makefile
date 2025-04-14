@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2025/04/14 20:51:52 by svereten         ###   ########.fr        #
+#    Updated: 2025/04/14 21:03:18 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,29 +108,29 @@ PANIC_MSG ?= libft
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	${AR} ${NAME} $^
+	${SILENT}${AR} ${NAME} $^
 
 # Special compilation
 
 obj/gnl/get_next_line.o: src/gnl/get_next_line.c | ${OBJS_DIRS}
-	${CC} ${CFLAGS} ${GNL_SIZE} -c $< ${INCLUDES} -o $@
+	${SILENT}${CC} ${CFLAGS} ${GNL_SIZE} -c $< ${INCLUDES} -o $@
 	
 obj/stdlib/ft_panic.o: src/stdlib/ft_panic.c | ${OBJS_DIRS}
-	${CC} ${CFLAGS} -D PANIC_MSG=\"${PANIC_MSG}\" -c $< ${INCLUDES} -o $@
+	${SILENT}${CC} ${CFLAGS} -D PANIC_MSG=\"${PANIC_MSG}\" -c $< ${INCLUDES} -o $@
 
 # Generic compilation
 
 ${OBJS_DIR}/%.o: ${SRCS_DIR}/%.c | ${OBJS_DIRS}
-	${CC} ${CFLAGS} -c $< ${INCLUDES} -o $@ 
+	${SILENT}${CC} ${CFLAGS} -c $< ${INCLUDES} -o $@ 
 
 ${OBJS_DIRS}:
-	mkdir -p $@
+	${SILENT}mkdir -p $@
 
 clean:
-	${RM} ${OBJS_DIR}
+	${SILENT}${RM} ${OBJS_DIR}
 
 fclean: clean
-	${RM} ${NAME}
+	${SILENT}${RM} ${NAME}
 
 re: fclean all
 
