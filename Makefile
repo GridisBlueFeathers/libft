@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2025/01/11 16:37:46 by svereten         ###   ########.fr        #
+#    Updated: 2025/04/14 20:51:52 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,6 @@ SRCS_PROJ = libft/ft_toupper \
 			stdlib/ft_calloc \
 			stdlib/ft_free \
 			stdlib/ft_panic \
-			stdlib/ft_exit \
 			stdio/ft_putchar_fd \
 			stdio/ft_putstr_fd \
 			stdio/ft_putstrarr_fd \

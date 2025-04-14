@@ -6,19 +6,12 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:10:45 by svereten          #+#    #+#             */
-/*   Updated: 2025/02/26 11:33:40 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/14 20:39:23 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "internal.h"
 #include "gc.h"
 #include "libft/libft.h"
-
-__attribute__((constructor))
-static	void	gc_start(void)
-{
-	if (gc(GET) == NULL)
-		exit(1);
-}
 
 static t_gc_data	*gc_init(void)
 {
@@ -28,11 +21,13 @@ static t_gc_data	*gc_init(void)
 	return (res);
 }
 
-static void	gc_free(t_gc_data *gc)
+static void	*gc_free(t_gc_data *gc)
 {
 	t_gc_node	*cur;
 	t_gc_node	*tmp;
 
+	if (!gc)
+		return (NULL);
 	cur = gc->head;
 	while (cur)
 	{
@@ -45,23 +40,29 @@ static void	gc_free(t_gc_data *gc)
 		cur = tmp;
 	}
 	free(gc);
+	return (NULL);
 }
 
 t_gc_data	*gc(t_option op)
 {
 	static t_gc_data	*gc;
 
-	if (op == GET)
-	{
-		if (!gc)
-			gc = gc_init();
-		return (gc);
-	}
+	if (op == GET && !gc)
+		gc = gc_init();
 	if (op == FREE)
-	{
-		gc_free(gc);
-		gc = NULL;
-		return (NULL);
-	}
-	return (NULL);
+		gc = gc_free(gc);
+	return (gc);
+}
+
+__attribute__((constructor(100)))
+static	void	gc_constructor(void)
+{
+	if (!gc(GET))
+		exit(1);
+}
+
+__attribute__((destructor(100)))
+static	void	gc_destructor(void)
+{
+	gc(FREE);
 }
