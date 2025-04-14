@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 15:52:44 by svereten          #+#    #+#             */
-/*   Updated: 2025/01/11 15:43:26 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/14 20:52:41 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STDLIB_H
@@ -37,10 +37,6 @@ int		ft_atoi(const char *number);
  * Adds returned pointer to garbage collector
  */
 void	*ft_calloc(size_t nmemb, size_t size);
-/**
- * Exits program and triggers garbage collector to collect memory and fds
- */
-void	ft_exit(int status);
 /**
  * Frees variable and sets it to NULL, variable should be passed by reference
  *
