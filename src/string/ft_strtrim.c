@@ -6,17 +6,20 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:17:48 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/26 17:26:58 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/17 12:39:29 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/string.h"
+#include "libft/stdlib.h"
 
 static int	ft_isinset(char const *set, char c)
 {
 	size_t	i;
+	size_t	set_len;
 
 	i = 0;
-	while (i < ft_strlen(set) && c != set[i])
+	set_len = ft_strlen(set);
+	while (i < set_len && c != set[i])
 		i++;
 	if (!set[i])
 		return (1);
@@ -44,6 +47,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	res = ft_substr(s1, start, end - start + 1);
 	if (!res)
-		return (0);
-	return (res);
+		return (ft_free(STR, &s1), NULL);
+	return (ft_free(STR, &s1), res);
 }
