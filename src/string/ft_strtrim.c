@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 17:17:48 by svereten          #+#    #+#             */
-/*   Updated: 2025/04/17 12:39:29 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/17 13:03:31 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/string.h"
@@ -39,6 +39,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[i] && !ft_isinset(set, s1[i]))
 		i++;
 	start = i;
+	end = i;
 	while (s1[i])
 	{
 		if (ft_isinset(set, s1[i]))
