@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:34:26 by svereten          #+#    #+#             */
-/*   Updated: 2024/09/24 12:06:05 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/19 12:30:01 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/get_next_line.h"
@@ -26,7 +26,7 @@ static char	*get_next_output(char *fd_buf, int *check)
 		if (!res)
 			*check = 0;
 		if (!res || !ft_strlen(res))
-			return (free(res), NULL);
+			return (ft_free(STR, &res), NULL);
 		return (res);
 	}
 	len = nl_location - fd_buf + 1;
