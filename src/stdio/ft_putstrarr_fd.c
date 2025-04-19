@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:23:56 by svereten          #+#    #+#             */
-/*   Updated: 2024/11/22 17:47:46 by svereten         ###   ########.fr       */
+/*   Updated: 2025/04/19 13:35:24 by svereten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft/stdio.h"
@@ -29,5 +29,5 @@ void	ft_putstrarr_fd(char **arr, int fd)
 		ft_putstr_fd("\", ", fd);
 		i++;
 	}
-	ft_putstr_fd("NULL}", fd);
+	ft_putstr_fd("NULL}\n", fd);
 }
