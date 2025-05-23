@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2025/04/14 21:03:18 by svereten         ###   ########.fr        #
+#    Updated: 2025/05/23 15:31:42 by svereten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRCS_PROJ = libft/ft_toupper \
 			stdio/ft_putuhex_fd \
 			stdio/ft_printf \
 			strarr/ft_strarrdup \
+			strarr/ft_strarrpop \
 			strarr/ft_strarrlen \
 			strarr/ft_strarrcmp \
 			unistd/ft_open \
