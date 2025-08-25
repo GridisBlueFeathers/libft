@@ -6,7 +6,7 @@
 /*   By: svereten <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:17:53 by svereten          #+#    #+#             */
-/*   Updated: 2025/05/23 15:29:21 by svereten         ###   ########.fr       */
+/*   Updated: 2025/08/25 18:13:14 by jwolfram         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STRARR_H
@@ -38,5 +38,11 @@ size_t	ft_strarrlen(char **arr);
  * Protected: returns NULL in case if arr is NULL or idx is without the range
  */
 char	**ft_strarrpop(char **arr, int idx);
+/**
+ * Copies string array by Size
+ * 
+ * Returns length of src string array
+ */
+size_t	ft_strarrlcpy(char **dst, char **src, size_t size);
 
 #endif
