@@ -6,7 +6,7 @@
 #    By: svereten <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/09 14:07:03 by svereten          #+#    #+#              #
-#    Updated: 2025/05/23 15:31:42 by svereten         ###   ########.fr        #
+#    Updated: 2025/08/25 18:13:52 by jwolfram         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ SRCS_PROJ = libft/ft_toupper \
 			strarr/ft_strarrpop \
 			strarr/ft_strarrlen \
 			strarr/ft_strarrcmp \
+			strarr/ft_strarrlcpy \
 			unistd/ft_open \
 			unistd/ft_close \
 			gnl/get_next_line \
